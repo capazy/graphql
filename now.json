@@ -6,8 +6,5 @@
       "use": "@now/node-server"
     }
   ],
-  "env": {
-    "MONGO_URI": "@mongo-uri"
-  },
   "routes": [{ "src": "/api/.*", "dest": "/index.js" }]
 }
