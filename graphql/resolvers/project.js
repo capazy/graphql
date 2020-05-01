@@ -13,22 +13,25 @@ const projects = async () => {
   }
 };
 
-const createProject = async (args, req) => {
-  if (!req.isAuth) {
+const createProject = async (
+  { projectInput: { title, description, price, date } },
+  { isAuth, userId }
+) => {
+  if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   const project = new Project({
-    title: args.projectInput.title,
-    description: args.projectInput.description,
-    price: +args.projectInput.price,
-    date: new Date(args.projectInput.date),
-    creator: req.userId,
+    title,
+    description,
+    price,
+    date: new Date(date),
+    creator: userId,
   });
   let createdProject;
   try {
     const result = await project.save();
     createdProject = transformProject(result);
-    const creator = await User.findById(req.userId);
+    const creator = await User.findById(userId);
     if (!creator) {
       throw new Error('User not found.');
     }
@@ -40,12 +43,16 @@ const createProject = async (args, req) => {
   }
 };
 
-const cancelProject = async (args, req) => {
-  if (!req.isAuth) {
+const cancelProject = async ({ projectId }, { isAuth, userId }) => {
+  if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   try {
-    const project = await Project.findByIdAndRemove(args.projectId);
+    const project = await Project.findById(projectId);
+    if (project.creator.toString() !== userId) {
+      throw new Error('Unauthorized');
+    }
+    await Project.findByIdAndRemove(projectId);
     return transformProject(project);
   } catch (error) {
     throw error;

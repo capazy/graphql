@@ -18,25 +18,32 @@ const users = async () => {
   }
 };
 
-const createUser = async (args) => {
+const createUser = async ({ userInput: { email, password } }) => {
   try {
-    const existingUser = await User.findOne({ email: args.userInput.email });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       throw new Error('User exists already.');
     }
-    const hashedPassword = await bcrypt.hash(args.userInput.password, 12);
+    const hashedPassword = await bcrypt.hash(password, 12);
     const user = new User({
-      email: args.userInput.email,
+      email,
       password: hashedPassword,
     });
-    const result = await user.save();
-    return { ...result._doc, password: null };
+    const token = await jwt.sign(
+      { userId: user.id, email: user.email },
+      'jwtsecretkey',
+      {
+        expiresIn: '1h',
+      }
+    );
+    await user.save();
+    return { userId: user.id, token, tokenExp: 1 };
   } catch (error) {
     throw error;
   }
 };
 
-const login = async ({ email, password }) => {
+const login = async ({ userInput: { email, password } }) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {

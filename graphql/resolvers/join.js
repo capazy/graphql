@@ -16,15 +16,15 @@ const joins = async (args, req) => {
   }
 };
 
-const joinProject = async (args, req) => {
-  if (!req.isAuth) {
+const joinProject = async ({ projectId }, { isAuth, userId }) => {
+  if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   try {
-    const fetchedProject = await Project.findById(args.projectId);
-    fetchedProject.joinedUsers.push(req.userId);
+    const fetchedProject = await Project.findById(projectId);
+    fetchedProject.joinedUsers.push(userId);
     const join = new Join({
-      user: req.userId,
+      user: userId,
       project: fetchedProject,
     });
     await fetchedProject.save();
@@ -35,15 +35,15 @@ const joinProject = async (args, req) => {
   }
 };
 
-const cancelJoin = async (args, req) => {
-  if (!req.isAuth) {
+const cancelJoin = async (args, { isAuth, userId }) => {
+  if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   try {
     const join = await Join.findById(args.joinId).populate('project');
     const project = await Project.findById(join.project.id);
     const removeUser = project.joinedUsers.find(
-      (user) => user.toString() === req.userId
+      (user) => user.toString() === userId
     );
     const index = project.joinedUsers.indexOf(removeUser);
     await project.joinedUsers.splice(index, 1);

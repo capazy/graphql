@@ -48,12 +48,12 @@ type RootQuery {
     projects: [Project!]!
     users: [User!]!
     joins: [Join!]!
-    login(email: String!, password: String!): AuthData! 
+    login(userInput: UserInput): AuthData! 
 }
 
 type RootMutation {
     createProject(projectInput: ProjectInput): Project
-    createUser(userInput: UserInput): User
+    createUser(userInput: UserInput): AuthData!
     joinProject(projectId: ID!): Join!
     cancelJoin(joinId: ID!): Project!
     cancelProject(projectId: ID!): Project!
