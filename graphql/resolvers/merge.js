@@ -51,9 +51,10 @@ const users = async (userIds) => {
 const transformProject = (project) => {
   return {
     ...project._doc,
-    date: dateToString(project.date),
     creator: singleUser.bind(this, project.creator),
     joinedUsers: users.bind(this, project.joinedUsers),
+    createdAt: dateToString(project.createdAt),
+    updatedAt: dateToString(project.updatedAt),
   };
 };
 

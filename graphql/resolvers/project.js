@@ -14,7 +14,7 @@ const projects = async () => {
 };
 
 const createProject = async (
-  { projectInput: { title, description, price, date } },
+  { projectInput: { title, description, skills, type, spots, published } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -23,8 +23,10 @@ const createProject = async (
   const project = new Project({
     title,
     description,
-    price,
-    date: new Date(date),
+    skills,
+    type,
+    spots,
+    published,
     creator: userId,
   });
   let createdProject;

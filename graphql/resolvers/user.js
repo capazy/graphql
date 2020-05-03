@@ -18,7 +18,21 @@ const users = async () => {
   }
 };
 
-const createUser = async ({ userInput: { email, password } }) => {
+const createUser = async ({
+  userInput: {
+    email,
+    password,
+    firstName,
+    lastName,
+    description,
+    skills,
+    languages,
+    experience,
+    companyName,
+    companyDepartment,
+    country,
+  },
+}) => {
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -28,6 +42,15 @@ const createUser = async ({ userInput: { email, password } }) => {
     const user = new User({
       email,
       password: hashedPassword,
+      firstName,
+      lastName,
+      description,
+      skills,
+      languages,
+      experience,
+      companyName,
+      companyDepartment,
+      country,
     });
     const token = await jwt.sign(
       { userId: user.id, email: user.email },
@@ -43,7 +66,7 @@ const createUser = async ({ userInput: { email, password } }) => {
   }
 };
 
-const login = async ({ userInput: { email, password } }) => {
+const login = async ({ loginInput: { email, password } }) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
