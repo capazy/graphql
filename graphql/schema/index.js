@@ -56,15 +56,15 @@ input ProjectInput {
 input UserInput {
     email: String!
     password: String!
-    firstName: String!
-    lastName: String!
-    description: String!
-    skills: [String!]!
-    languages: [String!]!
-    experience: String!
-    companyName: String!
-    companyDepartment: String!
-    country: String!
+    firstName: String
+    lastName: String
+    description: String
+    skills: [String!]
+    languages: [String!]
+    experience: String
+    companyName: String
+    companyDepartment: String
+    country: String
 }
 
 input LoginInput {
