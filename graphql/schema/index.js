@@ -13,6 +13,9 @@ type Join {
 type Vacancy {
     _id: ID!
     project: Project!
+    title: String!
+    description: String!
+    experience: String!
     skills: [String!]!
     postulatedUsers: [User!]!
     selectedUser: User!
@@ -24,7 +27,7 @@ type Project {
     description: String!
     skills: [String!]!
     type: String!
-    spots: Float!
+    deadline: String!
     published: String!
     isOpen: Boolean!
     creator: User!
@@ -44,6 +47,7 @@ type User {
     companyName: String!
     companyDepartment: String!
     country: String!
+    isAvailable: Boolean!
     createdProjects: [Project!]
 }
 
@@ -58,12 +62,15 @@ input ProjectInput {
     description: String!
     skills: [String!]!
     type: String!
-    spots: Float!
+    deadline: String!
     published: String!
 }
 
 input VacancyInput {
     projectId: ID!
+    title: String!
+    description: String!
+    experience: String!
     skills: [String!]!
 }
 
@@ -96,10 +103,10 @@ input FilterType {
 }
 
 type RootQuery {
-    projects: [Project!]!
     users(filter: UserFilter): [User!]!
-    joins: [Join!]!
+    projects: [Project!]!
     vacancies: [Vacancy!]!
+    joins: [Join!]!
 }
 
 type RootMutation {
@@ -107,8 +114,9 @@ type RootMutation {
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project
     createVacancy(vacancyInput: VacancyInput): Vacancy
-    joinProject(vacancyId: ID!): Join!
+    joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!
+    cancelVacancy(vacancyId: ID!): Vacancy!
     cancelProject(projectId: ID!): Project!
 }
 

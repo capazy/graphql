@@ -12,6 +12,7 @@ const userSchema = new Schema({
   companyName: { type: String, default: null },
   companyDepartment: { type: String, default: null },
   country: { type: String, default: null },
+  isAvailable: { type: Boolean, default: true },
   createdProjects: [
     {
       type: Schema.Types.ObjectId,

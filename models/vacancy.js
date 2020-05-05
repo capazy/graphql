@@ -6,6 +6,9 @@ const vacancySchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Project',
     },
+    title: { type: String, default: null },
+    description: { type: String, default: null },
+    experience: { type: String, default: null },
     skills: [{ type: String, default: null }],
     postulatedUsers: [
       {

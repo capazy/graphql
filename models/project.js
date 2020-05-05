@@ -6,19 +6,13 @@ const projectSchema = new Schema(
     description: { type: String, default: null },
     skills: [{ type: String, default: null }],
     type: { type: String, default: null },
-    spots: { type: Number, default: null },
+    deadline: { type: Date, default: null },
     published: { type: String, default: null },
-    isOpen: { type: Boolean, default: false },
+    isOpen: { type: Boolean, default: true },
     creator: {
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    // joinedUsers: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User',
-    //   },
-    // ],
     vacancies: [
       {
         type: Schema.Types.ObjectId,

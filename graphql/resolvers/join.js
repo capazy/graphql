@@ -14,7 +14,7 @@ const joins = async () => {
   }
 };
 
-const joinProject = async ({ vacancyId }, { isAuth, userId }) => {
+const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
@@ -35,12 +35,12 @@ const joinProject = async ({ vacancyId }, { isAuth, userId }) => {
   }
 };
 
-const cancelJoin = async (args, { isAuth, userId }) => {
+const cancelJoin = async ({ joinId }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   try {
-    const join = await Join.findById(args.joinId).populate('vacancy');
+    const join = await Join.findById(joinId);
     const vacancy = await Vacancy.findById(join.vacancy);
     const removeUser = vacancy.postulatedUsers.find(
       (user) => user.toString() === userId
@@ -48,11 +48,11 @@ const cancelJoin = async (args, { isAuth, userId }) => {
     const index = vacancy.postulatedUsers.indexOf(removeUser);
     await vacancy.postulatedUsers.splice(index, 1);
     await vacancy.save();
-    await Join.findByIdAndRemove(args.joinId);
+    await Join.findByIdAndRemove(joinId);
     return transformVacancy(vacancy);
   } catch (error) {
     throw error;
   }
 };
 
-module.exports = { joins, joinProject, cancelJoin };
+module.exports = { joins, joinVacancy, cancelJoin };

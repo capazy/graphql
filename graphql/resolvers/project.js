@@ -1,5 +1,7 @@
 const Project = require('../../models/project');
 const User = require('../../models/user');
+const Vacancy = require('../../models/vacancy');
+const Join = require('../../models/join');
 const { transformProject } = require('./merge');
 
 const projects = async () => {
@@ -14,7 +16,7 @@ const projects = async () => {
 };
 
 const createProject = async (
-  { projectInput: { title, description, skills, type, spots, published } },
+  { projectInput: { title, description, skills, type, deadline, published } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -25,7 +27,7 @@ const createProject = async (
     description,
     skills,
     type,
-    spots,
+    deadline,
     published,
     creator: userId,
   });
@@ -54,6 +56,14 @@ const cancelProject = async ({ projectId }, { isAuth, userId }) => {
     if (project.creator.toString() !== userId) {
       throw new Error('Unauthorized');
     }
+    const vacancies = await Vacancy.find({ _id: { $in: project.vacancies } });
+    await vacancies.map(async (vacancy) => {
+      await Vacancy.findByIdAndRemove(vacancy.id);
+    });
+    const joins = await Join.find({ project: projectId });
+    await joins.map(async (join) => {
+      await Join.findByIdAndRemove(join.id);
+    });
     await Project.findByIdAndRemove(projectId);
     return transformProject(project);
   } catch (error) {

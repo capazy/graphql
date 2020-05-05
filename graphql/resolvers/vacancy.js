@@ -1,5 +1,6 @@
 const Project = require('../../models/project');
 const Vacancy = require('../../models/vacancy');
+const Join = require('../../models/join');
 const {
   transformProject,
   transformJoin,
@@ -18,7 +19,7 @@ const vacancies = async () => {
 };
 
 const createVacancy = async (
-  { vacancyInput: { projectId, skills } },
+  { vacancyInput: { projectId, title, description, experience, skills } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -31,7 +32,10 @@ const createVacancy = async (
     }
     const vacancy = new Vacancy({
       project: fetchedProject,
-      skills: skills,
+      title,
+      description,
+      experience,
+      skills,
     });
     fetchedProject.vacancies.push(vacancy.id);
     await fetchedProject.save();
@@ -42,24 +46,28 @@ const createVacancy = async (
   }
 };
 
-// const cancelJoin = async (args, { isAuth, userId }) => {
-//   if (!isAuth) {
-//     throw new Error('Unauthenticated');
-//   }
-//   try {
-//     const join = await Join.findById(args.joinId).populate('project');
-//     const project = await Project.findById(join.project.id);
-//     const removeUser = project.joinedUsers.find(
-//       (user) => user.toString() === userId
-//     );
-//     const index = project.joinedUsers.indexOf(removeUser);
-//     await project.joinedUsers.splice(index, 1);
-//     await project.save();
-//     await Join.findByIdAndRemove(args.joinId);
-//     return transformProject(project);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+const cancelVacancy = async ({ vacancyId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const vacancy = await Vacancy.findById(vacancyId);
+    const project = await Project.findById(vacancy.project);
+    if (project.creator.toString() !== userId) {
+      throw new Error('Unauthorized');
+    }
+    const removeUser = project.vacancies.find(
+      (vacancy) => vacancy.toString() === vacancyId
+    );
+    const index = project.vacancies.indexOf(removeUser);
+    await project.vacancies.splice(index, 1);
+    await project.save();
+    await Vacancy.findByIdAndRemove(vacancyId);
+    await Join.findOneAndDelete({ vacancy: vacancyId });
+    return transformVacancy(vacancy);
+  } catch (error) {
+    throw error;
+  }
+};
 
-module.exports = { vacancies, createVacancy };
+module.exports = { vacancies, createVacancy, cancelVacancy };

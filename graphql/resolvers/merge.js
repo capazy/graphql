@@ -9,6 +9,7 @@ const singleVacancy = async (vacancyId) => {
     const vacancy = await Vacancy.findById(vacancyId);
     return {
       ...vacancy._doc,
+      postulatedUsers: users.bind(this, vacancy.postulatedUsers),
       project: singleProject.bind(this, vacancy.project),
     };
   } catch (error) {
@@ -81,6 +82,7 @@ const transformProject = (project) => {
     ...project._doc,
     creator: singleUser.bind(this, project.creator),
     vacancies: vacancies.bind(this, project.vacancies),
+    deadline: dateToString(project.deadline),
     createdAt: dateToString(project.createdAt),
     updatedAt: dateToString(project.updatedAt),
   };
