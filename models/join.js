@@ -6,6 +6,10 @@ const joinSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Project',
     },
+    vacancy: {
+      type: Schema.Types.ObjectId,
+      ref: 'Vacancy',
+    },
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',

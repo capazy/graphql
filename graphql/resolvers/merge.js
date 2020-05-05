@@ -1,7 +1,33 @@
 const Project = require('../../models/project');
 const User = require('../../models/user');
+const Vacancy = require('../../models/vacancy');
 const { dateToString } = require('../../helpers');
 
+// vacancy
+const singleVacancy = async (vacancyId) => {
+  try {
+    const vacancy = await Vacancy.findById(vacancyId);
+    return {
+      ...vacancy._doc,
+      project: singleProject.bind(this, vacancy.project),
+    };
+  } catch (error) {
+    throw error;
+  }
+};
+
+const vacancies = async (vacancyIds) => {
+  try {
+    const vacancies = await Vacancy.find({ _id: { $in: vacancyIds } });
+    return vacancies.map((vacancy) => {
+      return transformVacancy(vacancy);
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+// project
 const singleProject = async (projectId) => {
   try {
     const project = await Project.findById(projectId);
@@ -25,6 +51,7 @@ const projects = async (projectIds) => {
   }
 };
 
+// User
 const singleUser = async (userId) => {
   try {
     const user = await User.findById(userId);
@@ -48,11 +75,12 @@ const users = async (userIds) => {
   }
 };
 
+// transform fuctions
 const transformProject = (project) => {
   return {
     ...project._doc,
     creator: singleUser.bind(this, project.creator),
-    joinedUsers: users.bind(this, project.joinedUsers),
+    vacancies: vacancies.bind(this, project.vacancies),
     createdAt: dateToString(project.createdAt),
     updatedAt: dateToString(project.updatedAt),
   };
@@ -63,9 +91,25 @@ const transformJoin = (join) => {
     ...join._doc,
     user: singleUser.bind(this, join.user),
     project: singleProject.bind(this, join.project),
+    vacancy: singleVacancy.bind(this, join.vacancy),
     createdAt: dateToString(join.createdAt),
     updatedAt: dateToString(join.updatedAt),
   };
 };
 
-module.exports = { projects, transformProject, transformJoin };
+const transformVacancy = (vacancy) => {
+  return {
+    ...vacancy._doc,
+    project: singleProject.bind(this, vacancy.project),
+    postulatedUsers: users.bind(this, vacancy.postulatedUsers),
+    createdAt: dateToString(vacancy.createdAt),
+    updatedAt: dateToString(vacancy.updatedAt),
+  };
+};
+
+module.exports = {
+  projects,
+  transformProject,
+  transformJoin,
+  transformVacancy,
+};

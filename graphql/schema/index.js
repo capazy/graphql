@@ -4,9 +4,18 @@ const rootSchema = buildSchema(`
 type Join {
     _id: ID!
     project: Project!
+    vacancy: Vacancy!
     user: User!
     createdAt: String!
     updatedAt: String!  
+}
+
+type Vacancy {
+    _id: ID!
+    project: Project!
+    skills: [String!]!
+    postulatedUsers: [User!]!
+    selectedUser: User!
 }
 
 type Project {
@@ -19,7 +28,7 @@ type Project {
     published: String!
     isOpen: Boolean!
     creator: User!
-    joinedUsers: [User!]!
+    vacancies: [Vacancy!]!
 }
 
 type User {
@@ -53,6 +62,11 @@ input ProjectInput {
     published: String!
 }
 
+input VacancyInput {
+    projectId: ID!
+    skills: [String!]!
+}
+
 input UserInput {
     email: String!
     password: String!
@@ -72,18 +86,29 @@ input LoginInput {
     password: String!
 }
 
+input UserFilter {
+    country: FilterType
+}
+
+input FilterType {
+    ne: String
+    eq: String
+}
+
 type RootQuery {
     projects: [Project!]!
-    users: [User!]!
+    users(filter: UserFilter): [User!]!
     joins: [Join!]!
-    login(loginInput: LoginInput): AuthData! 
+    vacancies: [Vacancy!]!
 }
 
 type RootMutation {
-    createProject(projectInput: ProjectInput): Project
     createUser(userInput: UserInput): AuthData!
-    joinProject(projectId: ID!): Join!
-    cancelJoin(joinId: ID!): Project!
+    login(loginInput: LoginInput): AuthData! 
+    createProject(projectInput: ProjectInput): Project
+    createVacancy(vacancyInput: VacancyInput): Vacancy
+    joinProject(vacancyId: ID!): Join!
+    cancelJoin(joinId: ID!): Vacancy!
     cancelProject(projectId: ID!): Project!
 }
 

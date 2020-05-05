@@ -13,10 +13,16 @@ const projectSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    joinedUsers: [
+    // joinedUsers: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    //   },
+    // ],
+    vacancies: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Vacancy',
       },
     ],
   },

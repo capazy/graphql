@@ -1,11 +1,9 @@
 const Project = require('../../models/project');
 const Join = require('../../models/join');
-const { transformProject, transformJoin } = require('./merge');
+const Vacancy = require('../../models/vacancy');
+const { transformVacancy, transformJoin } = require('./merge');
 
-const joins = async (args, req) => {
-  // if (!req.isAuth) {
-  //   throw new Error('Unauthenticated');
-  // }
+const joins = async () => {
   try {
     const joins = await Join.find();
     return joins.map((join) => {
@@ -16,18 +14,20 @@ const joins = async (args, req) => {
   }
 };
 
-const joinProject = async ({ projectId }, { isAuth, userId }) => {
+const joinProject = async ({ vacancyId }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   try {
-    const fetchedProject = await Project.findById(projectId);
-    fetchedProject.joinedUsers.push(userId);
+    const fetchedVacancy = await Vacancy.findById(vacancyId);
+    const fetchedProject = await Project.findById(fetchedVacancy.project);
     const join = new Join({
       user: userId,
       project: fetchedProject,
+      vacancy: fetchedVacancy,
     });
-    await fetchedProject.save();
+    fetchedVacancy.postulatedUsers.push(userId);
+    await fetchedVacancy.save();
     const result = await join.save();
     return transformJoin(result);
   } catch (error) {
@@ -40,16 +40,16 @@ const cancelJoin = async (args, { isAuth, userId }) => {
     throw new Error('Unauthenticated');
   }
   try {
-    const join = await Join.findById(args.joinId).populate('project');
-    const project = await Project.findById(join.project.id);
-    const removeUser = project.joinedUsers.find(
+    const join = await Join.findById(args.joinId).populate('vacancy');
+    const vacancy = await Vacancy.findById(join.vacancy);
+    const removeUser = vacancy.postulatedUsers.find(
       (user) => user.toString() === userId
     );
-    const index = project.joinedUsers.indexOf(removeUser);
-    await project.joinedUsers.splice(index, 1);
-    await project.save();
+    const index = vacancy.postulatedUsers.indexOf(removeUser);
+    await vacancy.postulatedUsers.splice(index, 1);
+    await vacancy.save();
     await Join.findByIdAndRemove(args.joinId);
-    return transformProject(project);
+    return transformVacancy(vacancy);
   } catch (error) {
     throw error;
   }

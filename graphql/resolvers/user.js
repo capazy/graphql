@@ -3,8 +3,13 @@ const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const { projects } = require('./merge');
 
-const users = async () => {
+const users = async (args) => {
+  // const field = Object.keys(args.filter)[0];
+  // const operator = '$' + Object.keys(args.filter[field])[0];
+  // const value = Object.values(args.filter[field])[0];
+  // console.log(field, value, operator);
   try {
+    // const users = await User.find({ [field]: { [operator]: value } });
     const users = await User.find();
     return users.map((user) => {
       return {
