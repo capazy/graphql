@@ -74,9 +74,14 @@ input VacancyInput {
     skills: [String!]!
 }
 
-input UserInput {
+input createUserInput {
     email: String!
     password: String!
+    firstName: String!
+    lastName: String!
+}
+
+input UpdateUserInput {
     firstName: String
     lastName: String
     description: String
@@ -110,7 +115,8 @@ type RootQuery {
 }
 
 type RootMutation {
-    createUser(userInput: UserInput): AuthData!
+    createUser(userInput: createUserInput): AuthData!
+    updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project
     createVacancy(vacancyInput: VacancyInput): Vacancy

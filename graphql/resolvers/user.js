@@ -24,19 +24,7 @@ const users = async (args) => {
 };
 
 const createUser = async ({
-  userInput: {
-    email,
-    password,
-    firstName,
-    lastName,
-    description,
-    skills,
-    languages,
-    experience,
-    companyName,
-    companyDepartment,
-    country,
-  },
+  userInput: { email, password, firstName, lastName },
 }) => {
   try {
     const existingUser = await User.findOne({ email });
@@ -49,13 +37,6 @@ const createUser = async ({
       password: hashedPassword,
       firstName,
       lastName,
-      description,
-      skills,
-      languages,
-      experience,
-      companyName,
-      companyDepartment,
-      country,
     });
     const token = await jwt.sign(
       { userId: user.id, email: user.email },
@@ -94,4 +75,22 @@ const login = async ({ loginInput: { email, password } }) => {
   }
 };
 
-module.exports = { users, createUser, login };
+const updateUser = async ({ userInput }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $set: userInput,
+      },
+      { new: true }
+    );
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = { users, createUser, login, updateUser };
