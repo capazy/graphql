@@ -25,7 +25,6 @@ const createProject = async (
   const project = new Project({
     title,
     description,
-    skills,
     type,
     deadline,
     published,
