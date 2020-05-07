@@ -19,7 +19,7 @@ const vacancies = async () => {
 };
 
 const createVacancy = async (
-  { vacancyInput: { projectId, title, description, experience, skills } },
+  { vacancyInput: { projectId, title, experience, skills } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -33,7 +33,6 @@ const createVacancy = async (
     const vacancy = new Vacancy({
       project: fetchedProject,
       title,
-      description,
       experience,
       skills,
     });

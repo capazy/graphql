@@ -14,7 +14,6 @@ type Vacancy {
     _id: ID!
     project: Project!
     title: String!
-    description: String!
     experience: String!
     skills: [String!]!
     postulatedUsers: [User!]!
@@ -67,10 +66,9 @@ input ProjectInput {
 
 input VacancyInput {
     projectId: ID!
-    title: String!
-    description: String!
-    experience: String!
-    skills: [String!]!
+    title: String
+    experience: String
+    skills: [String!]
 }
 
 input createUserInput {
@@ -118,8 +116,8 @@ type RootMutation {
     createUser(userInput: createUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
-    createProject(projectInput: ProjectInput): Project
-    createVacancy(vacancyInput: VacancyInput): Vacancy
+    createProject(projectInput: ProjectInput): Project!
+    createVacancy(vacancyInput: VacancyInput): Vacancy!
     joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!
     cancelVacancy(vacancyId: ID!): Vacancy!
