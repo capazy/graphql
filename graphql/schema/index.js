@@ -40,6 +40,7 @@ type User {
     firstName: String!
     lastName: String!
     description: String!
+    expertise: String!
     skills: [String!]!
     languages: [String!]!
     experience: String!
@@ -83,6 +84,7 @@ input UpdateUserInput {
     firstName: String
     lastName: String
     description: String
+    expertise: String
     skills: [String!]
     languages: [String!]
     experience: String

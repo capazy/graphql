@@ -6,6 +6,7 @@ const userSchema = new Schema({
   firstName: { type: String, default: null },
   lastName: { type: String, default: null },
   description: { type: String, default: null },
+  expertise: { type: String, default: null },
   skills: [{ type: String, default: null }],
   languages: [{ type: String, default: null }],
   experience: { type: String, default: null },
