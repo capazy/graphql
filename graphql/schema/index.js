@@ -108,7 +108,7 @@ input FilterType {
 type RootQuery {
     users(filter: UserFilter): [User!]!
     projects: [Project!]!
-    vacancies: [Vacancy!]!
+    vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!
 }
 
