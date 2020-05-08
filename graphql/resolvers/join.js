@@ -26,7 +26,7 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
       project: fetchedProject,
       vacancy: fetchedVacancy,
     });
-    fetchedVacancy.postulatedUsers.push(userId);
+    await fetchedVacancy.postulatedUsers.push(userId);
     await fetchedVacancy.save();
     const result = await join.save();
     return transformJoin(result);
