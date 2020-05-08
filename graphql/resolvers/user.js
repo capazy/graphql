@@ -1,7 +1,22 @@
 const bcrypt = require('bcryptjs');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
-const { projects } = require('./merge');
+const { projects, vacancies } = require('./merge');
+
+const user = async (args) => {
+  try {
+    const user = await User.findOne({ _id: args.id });
+
+    return {
+      ...user._doc,
+      password: null,
+      // createdProjects: projects.bind(this, user.createdProjects),
+      // vacancies: projects.bind(this, user.createdProjects)
+    };
+  } catch (error) {
+    throw error;
+  }
+};
 
 const users = async (args) => {
   // const field = Object.keys(args.filter)[0];
@@ -93,4 +108,4 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { users, createUser, login, updateUser };
+module.exports = { users, createUser, login, updateUser, user };
