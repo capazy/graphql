@@ -4,7 +4,6 @@ const projectSchema = new Schema(
   {
     title: { type: String, default: null },
     description: { type: String, default: null },
-    skills: [{ type: String, default: null }],
     type: { type: String, default: null },
     deadline: { type: Date, default: null },
     published: { type: String, default: null },
