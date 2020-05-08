@@ -41,6 +41,7 @@ type User {
     description: String!
     expertise: String!
     skills: [String!]!
+    additionalSkills: [String!]!
     languages: [String!]!
     experience: String!
     companyName: String!
@@ -84,6 +85,7 @@ input UpdateUserInput {
     description: String
     expertise: String
     skills: [String!]
+    additionalSkills: [String!]
     languages: [String!]
     experience: String
     companyName: String
