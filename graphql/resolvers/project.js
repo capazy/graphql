@@ -6,7 +6,7 @@ const { transformProject } = require('./merge');
 
 const projects = async () => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find().sort({ createdAt: -1 });
     return projects.map((project) => {
       return transformProject(project);
     });
@@ -16,7 +16,7 @@ const projects = async () => {
 };
 
 const createProject = async (
-  { projectInput: { title, description, skills, type, deadline, published } },
+  { projectInput: { title, description, type, deadline, published } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
