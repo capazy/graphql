@@ -49,6 +49,7 @@ type User {
     country: String!
     isAvailable: Boolean!
     createdProjects: [Project!]
+    joinedProjects: [Vacancy!]
 }
 
 type AuthData {
@@ -109,7 +110,7 @@ input FilterType {
 
 type RootQuery {
     users(filter: UserFilter): [User!]!
-    user(id: ID!): User!
+    user: User!
     projects: [Project!]!
     vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!

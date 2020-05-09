@@ -1,3 +1,4 @@
+const User = require('../../models/user');
 const Project = require('../../models/project');
 const Join = require('../../models/join');
 const Vacancy = require('../../models/vacancy');
@@ -19,6 +20,7 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
     throw new Error('Unauthenticated');
   }
   try {
+    const user = await User.findById(userId);
     const fetchedVacancy = await Vacancy.findById(vacancyId);
     const fetchedProject = await Project.findById(fetchedVacancy.project);
     const join = new Join({
@@ -26,8 +28,10 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
       project: fetchedProject,
       vacancy: fetchedVacancy,
     });
+    await user.joinedProjects.push(vacancyId);
     await fetchedVacancy.postulatedUsers.push(userId);
-    await fetchedVacancy.save();
+    user.save();
+    fetchedVacancy.save();
     const result = await join.save();
     return transformJoin(result);
   } catch (error) {

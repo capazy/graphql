@@ -3,15 +3,17 @@ const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const { projects, vacancies } = require('./merge');
 
-const user = async (args) => {
+const user = async (args, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
   try {
-    const user = await User.findOne({ _id: args.id });
-
+    const user = await User.findById(userId);
     return {
       ...user._doc,
       password: null,
-      // createdProjects: projects.bind(this, user.createdProjects),
-      // vacancies: projects.bind(this, user.createdProjects)
+      createdProjects: projects.bind(this, user.createdProjects),
+      joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
   } catch (error) {
     throw error;
