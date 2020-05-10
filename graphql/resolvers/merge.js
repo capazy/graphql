@@ -111,6 +111,7 @@ const transformVacancy = (vacancy) => {
 
 module.exports = {
   projects,
+  vacancies,
   transformProject,
   transformJoin,
   transformVacancy,

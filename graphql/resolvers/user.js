@@ -9,11 +9,11 @@ const user = async (args, { isAuth, userId }) => {
   }
   try {
     const user = await User.findById(userId);
-
     return {
       ...user._doc,
       password: null,
       createdProjects: projects.bind(this, user.createdProjects),
+      joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
   } catch (error) {
     throw error;

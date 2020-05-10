@@ -49,6 +49,7 @@ type User {
     country: String!
     isAvailable: Boolean!
     createdProjects: [Project!]
+    joinedProjects: [Vacancy!]
 }
 
 type AuthData {

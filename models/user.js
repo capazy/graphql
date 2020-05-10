@@ -21,6 +21,12 @@ const userSchema = new Schema({
       ref: 'Project',
     },
   ],
+  joinedProjects: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Vacancy',
+    },
+  ],
 });
 
 module.exports = model('User', userSchema);
