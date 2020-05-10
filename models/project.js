@@ -8,6 +8,7 @@ const projectSchema = new Schema(
     deadline: { type: Date, default: null },
     published: { type: String, default: null },
     isOpen: { type: Boolean, default: true },
+    skills: [{ type: String, default: null }],
     creator: {
       type: Schema.Types.ObjectId,
       ref: 'User',

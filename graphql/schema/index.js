@@ -28,6 +28,7 @@ type Project {
     deadline: String!
     published: String!
     isOpen: Boolean!
+    skills: [String!]!
     creator: User!
     vacancies: [Vacancy!]!
 }
@@ -102,7 +103,7 @@ input LoginInput {
 type RootQuery {
     user: User!
     projects: [Project!]!
-    projectsBySkill(skill: String!): [Vacancy!]!
+    projectsBySkill(skill: String!): [Project!]!
     vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!
 }
