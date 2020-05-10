@@ -28,6 +28,7 @@ type Project {
     deadline: String!
     published: String!
     isOpen: Boolean!
+    skills: [String!]!
     creator: User!
     vacancies: [Vacancy!]!
 }
@@ -99,19 +100,10 @@ input LoginInput {
     password: String!
 }
 
-input UserFilter {
-    country: FilterType
-}
-
-input FilterType {
-    ne: String
-    eq: String
-}
-
 type RootQuery {
-    users(filter: UserFilter): [User!]!
     user: User!
     projects: [Project!]!
+    projectsBySkill(skill: String!): [Project!]!
     vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!
 }

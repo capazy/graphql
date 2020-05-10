@@ -34,6 +34,7 @@ const singleProject = async (projectId) => {
     const project = await Project.findById(projectId);
     return {
       ...project._doc,
+      vacancies: vacancies.bind(this, project.vacancies),
       creator: singleUser.bind(this, project.creator),
     };
   } catch (error) {

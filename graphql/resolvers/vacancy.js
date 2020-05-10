@@ -33,6 +33,9 @@ const createVacancy = async (
       skills,
     });
     fetchedProject.vacancies.push(vacancy.id);
+    skills.map((skill) => {
+      fetchedProject.skills.push(skill);
+    });
     await fetchedProject.save();
     const result = await vacancy.save();
     return transformVacancy(result);

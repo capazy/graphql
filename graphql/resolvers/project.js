@@ -4,6 +4,20 @@ const Vacancy = require('../../models/vacancy');
 const Join = require('../../models/join');
 const { transformProject } = require('./merge');
 
+const projectsBySkill = async ({ skill }) => {
+  try {
+    const projects = await Project.find({ skills: skill }).collation({
+      locale: 'en',
+      strength: 2,
+    });
+    return projects.map((project) => {
+      return transformProject(project);
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 const projects = async () => {
   try {
     const projects = await Project.find().sort({ createdAt: -1 });
@@ -70,4 +84,4 @@ const cancelProject = async ({ projectId }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { projects, createProject, cancelProject };
+module.exports = { projects, projectsBySkill, createProject, cancelProject };
