@@ -2,7 +2,21 @@ const Project = require('../../models/project');
 const User = require('../../models/user');
 const Vacancy = require('../../models/vacancy');
 const Join = require('../../models/join');
-const { transformProject } = require('./merge');
+const { transformProject, transformVacancy } = require('./merge');
+
+const projectsBySkill = async ({ skill }) => {
+  try {
+    const vacancies = await Vacancy.find({ skills: skill }).collation({
+      locale: 'en',
+      strength: 2,
+    });
+    return vacancies.map((vacancy) => {
+      return transformVacancy(vacancy);
+    });
+  } catch (error) {
+    throw error;
+  }
+};
 
 const projects = async () => {
   try {
@@ -70,4 +84,4 @@ const cancelProject = async ({ projectId }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { projects, createProject, cancelProject };
+module.exports = { projects, projectsBySkill, createProject, cancelProject };
