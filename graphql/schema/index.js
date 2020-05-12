@@ -37,18 +37,18 @@ type User {
     _id: ID
     email: String!
     password: String
-    firstName: String!
-    lastName: String!
-    description: String!
-    expertise: String!
-    skills: [String!]!
-    additionalSkills: [String!]!
-    languages: [String!]!
-    experience: String!
-    companyName: String!
-    companyDepartment: String!
-    country: String!
-    isAvailable: Boolean!
+    firstName: String
+    lastName: String
+    description: String
+    expertise: String
+    skills: [String!]
+    additionalSkills: [String!]
+    languages: [String!]
+    experience: String
+    companyName: String
+    companyDepartment: String
+    country: String
+    isAvailable: Boolean
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
 }
