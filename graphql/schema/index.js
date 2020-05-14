@@ -117,6 +117,7 @@ type RootMutation {
     cancelJoin(joinId: ID!): Vacancy!
     cancelVacancy(vacancyId: ID!): Vacancy!
     cancelProject(projectId: ID!): Project!
+    selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
 }
 
 schema {

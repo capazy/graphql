@@ -105,6 +105,7 @@ const transformVacancy = (vacancy) => {
     ...vacancy._doc,
     project: singleProject.bind(this, vacancy.project),
     postulatedUsers: users.bind(this, vacancy.postulatedUsers),
+    selectedUser: singleUser.bind(this, vacancy.selectedUser),
     createdAt: dateToString(vacancy.createdAt),
     updatedAt: dateToString(vacancy.updatedAt),
   };

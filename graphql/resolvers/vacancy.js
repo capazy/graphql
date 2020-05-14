@@ -68,4 +68,23 @@ const cancelVacancy = async ({ vacancyId }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { vacancies, createVacancy, cancelVacancy };
+const selectUser = async (
+  { selectedUserId, vacancyId },
+  { isAuth, userId }
+) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    // const user = await User.findById(userId);
+    const fetchedVacancy = await Vacancy.findById(vacancyId);
+    fetchedVacancy.selectedUser = selectedUserId;
+    // user.save();
+    const result = await fetchedVacancy.save();
+    return transformVacancy(result);
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = { vacancies, createVacancy, cancelVacancy, selectUser };
