@@ -83,7 +83,8 @@ const transformProject = (project) => {
     ...project._doc,
     creator: singleUser.bind(this, project.creator),
     vacancies: vacancies.bind(this, project.vacancies),
-    deadline: dateToString(project.deadline),
+    startDate: dateToString(project.startDate),
+    endDate: dateToString(project.endDate),
     createdAt: dateToString(project.createdAt),
     updatedAt: dateToString(project.updatedAt),
   };

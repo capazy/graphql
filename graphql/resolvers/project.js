@@ -26,7 +26,7 @@ const projects = async ({ skill }) => {
 };
 
 const createProject = async (
-  { projectInput: { title, description, type, deadline, published } },
+  { projectInput: { title, description, type, startDate, endDate, published } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -36,7 +36,8 @@ const createProject = async (
     title,
     description,
     type,
-    deadline,
+    startDate,
+    endDate,
     published,
     creator: userId,
   });

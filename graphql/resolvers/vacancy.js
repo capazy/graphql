@@ -15,7 +15,16 @@ const vacancies = async ({ projectId }) => {
 };
 
 const createVacancy = async (
-  { vacancyInput: { projectId, title, experience, skills } },
+  {
+    vacancyInput: {
+      projectId,
+      title,
+      experience,
+      skills,
+      timeCommitment,
+      timeCommitmentUnits,
+    },
+  },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -31,6 +40,8 @@ const createVacancy = async (
       title,
       experience,
       skills,
+      timeCommitment,
+      timeCommitmentUnits,
     });
     fetchedProject.vacancies.push(vacancy.id);
     skills.map((skill) => {
