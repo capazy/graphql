@@ -16,6 +16,8 @@ type Vacancy {
     title: String!
     experience: String!
     skills: [String!]!
+    timeCommitment: Float!
+    timeCommitmentUnits: String!
     postulatedUsers: [User!]!
     selectedUser: User!
 }
@@ -25,7 +27,8 @@ type Project {
     title: String!
     description: String!
     type: String!
-    deadline: String!
+    startDate: String!
+    endDate: String!
     published: String!
     isOpen: Boolean!
     skills: [String!]!
@@ -63,7 +66,8 @@ input ProjectInput {
     title: String!
     description: String!
     type: String!
-    deadline: String!
+    startDate: String!
+    endDate: String!
     published: String!
 }
 
@@ -72,6 +76,8 @@ input VacancyInput {
     title: String
     experience: String
     skills: [String!]
+    timeCommitment: Float
+    timeCommitmentUnits: String
 }
 
 input createUserInput {

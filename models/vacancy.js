@@ -10,6 +10,8 @@ const vacancySchema = new Schema(
     description: { type: String, default: null },
     experience: { type: String, default: null },
     skills: [{ type: String, default: null }],
+    timeCommitment: { type: Number, default: null },
+    timeCommitmentUnits: { type: String, default: null },
     postulatedUsers: [
       {
         type: Schema.Types.ObjectId,
