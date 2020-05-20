@@ -108,6 +108,7 @@ input LoginInput {
 
 type RootQuery {
     user: User!
+    users(skill: String!): [User!]!
     projects(skill: String!): [Project!]!
     vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!

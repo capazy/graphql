@@ -20,25 +20,22 @@ const user = async (args, { isAuth, userId }) => {
   }
 };
 
-// const users = async (args) => {
-//   const field = Object.keys(args.filter)[0];
-//   const operator = '$' + Object.keys(args.filter[field])[0];
-//   const value = Object.values(args.filter[field])[0];
-//   console.log(field, value, operator);
-//   try {
-//     const users = await User.find({ [field]: { [operator]: value } });
-//     const users = await User.find();
-//     return users.map((user) => {
-//       return {
-//         ...user._doc,
-//         password: null,
-//         createdProjects: projects.bind(this, user.createdProjects),
-//       };
-//     });
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+const users = async ({ skill }) => {
+  try {
+    let users;
+    if (skill) {
+      users = await User.find({ skills: skill }).collation({
+        locale: 'en',
+        strength: 2,
+      });
+    } else {
+      users = await Project.find();
+    }
+    return users;
+  } catch (error) {
+    throw error;
+  }
+};
 
 const createUser = async ({
   userInput: { email, password, firstName, lastName },
@@ -110,4 +107,4 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { createUser, login, updateUser, user };
+module.exports = { createUser, login, updateUser, user, users };
