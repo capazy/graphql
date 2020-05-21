@@ -20,6 +20,24 @@ const user = async (args, { isAuth, userId }) => {
   }
 };
 
+const userById = async (args, { isAuth }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  const { userId } = args;
+  try {
+    const user = await User.findById(userId);
+    return {
+      ...user._doc,
+      password: null,
+      createdProjects: projects.bind(this, user.createdProjects),
+      joinedProjects: vacancies.bind(this, user.joinedProjects),
+    };
+  } catch (error) {
+    throw error;
+  }
+};
+
 const users = async ({ skill }) => {
   try {
     let users;
@@ -107,4 +125,4 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { createUser, login, updateUser, user, users };
+module.exports = { createUser, login, updateUser, user, users, userById };
