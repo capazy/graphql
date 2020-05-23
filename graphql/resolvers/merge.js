@@ -1,6 +1,7 @@
 const Project = require('../../models/project');
 const User = require('../../models/user');
 const Vacancy = require('../../models/vacancy');
+const Join = require('../../models/join');
 const { dateToString } = require('../../helpers');
 
 // vacancy
@@ -53,13 +54,27 @@ const projects = async (projectIds) => {
   }
 };
 
-// User
+// join
+const joins = async (joinIds) => {
+  try {
+    const joins = await Join.find({ _id: { $in: joinIds } });
+    return joins.map((join) => {
+      return transformJoin(join);
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+// user
 const singleUser = async (userId) => {
   try {
     const user = await User.findById(userId);
     return {
       ...user._doc,
       createdProjects: projects.bind(this, user.createdProjects),
+      joinedProjects: projects.bind(this, user.joinedProjects),
+      joins: joins.bind(this, user.joins),
     };
   } catch (error) {
     throw error;
@@ -106,7 +121,7 @@ const transformVacancy = (vacancy) => {
     ...vacancy._doc,
     project: singleProject.bind(this, vacancy.project),
     postulatedUsers: users.bind(this, vacancy.postulatedUsers),
-    selectedUser: singleUser.bind(this, vacancy.selectedUser),
+    selectedUser: singleUser.bind(this, vacancy.selectedUser), //HERE
     createdAt: dateToString(vacancy.createdAt),
     updatedAt: dateToString(vacancy.updatedAt),
   };
@@ -115,6 +130,7 @@ const transformVacancy = (vacancy) => {
 module.exports = {
   projects,
   vacancies,
+  joins,
   transformProject,
   transformJoin,
   transformVacancy,

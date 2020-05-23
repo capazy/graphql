@@ -87,11 +87,19 @@ const selectUser = async (
     throw new Error('Unauthenticated');
   }
   try {
-    // const user = await User.findById(userId);
-    const fetchedVacancy = await Vacancy.findById(vacancyId);
-    fetchedVacancy.selectedUser = selectedUserId;
-    // user.save();
-    const result = await fetchedVacancy.save();
+    const project = await Project.findOne({ vacancies: vacancyId });
+    if (project.creator.toString() !== userId) {
+      throw new Error('Unauthorized');
+    }
+    const vacancy = await Vacancy.findById(vacancyId);
+    const join = await Join.findOne({
+      user: selectedUserId,
+      vacancy: vacancyId,
+    });
+    vacancy.selectedUser = selectedUserId;
+    join.status = 'selected';
+    join.save();
+    const result = await vacancy.save();
     return transformVacancy(result);
   } catch (error) {
     throw error;

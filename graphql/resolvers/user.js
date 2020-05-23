@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
-const { projects, vacancies } = require('./merge');
+const { projects, vacancies, joins } = require('./merge');
 
 const user = async (args, { isAuth, userId }) => {
   if (!isAuth) {
@@ -12,6 +12,7 @@ const user = async (args, { isAuth, userId }) => {
     return {
       ...user._doc,
       password: null,
+      joins: joins.bind(this, user.joins),
       createdProjects: projects.bind(this, user.createdProjects),
       joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
