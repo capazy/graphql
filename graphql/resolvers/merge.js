@@ -70,6 +70,11 @@ const joins = async (joinIds) => {
 const singleUser = async (userId) => {
   try {
     const user = await User.findById(userId);
+    if (!user) {
+      return {
+        _id: null,
+      };
+    }
     return {
       ...user._doc,
       createdProjects: projects.bind(this, user.createdProjects),

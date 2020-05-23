@@ -41,17 +41,12 @@ const createProject = async (
     published,
     creator: userId,
   });
-  let createdProject;
   try {
+    const user = await User.findById(userId);
+    user.createdProjects.push(project);
+    user.save();
     const result = await project.save();
-    createdProject = transformProject(result);
-    const creator = await User.findById(userId);
-    if (!creator) {
-      throw new Error('User not found.');
-    }
-    creator.createdProjects.push(project);
-    await creator.save();
-    return createdProject;
+    return transformProject(result);
   } catch (error) {
     throw error;
   }
