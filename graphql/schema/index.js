@@ -6,6 +6,7 @@ type Join {
     project: Project!
     vacancy: Vacancy!
     user: User!
+    status: String!
     createdAt: String!
     updatedAt: String!  
 }
@@ -18,8 +19,8 @@ type Vacancy {
     skills: [String!]!
     timeCommitment: Float!
     timeCommitmentUnits: String!
-    postulatedUsers: [User!]!
-    selectedUser: User!
+    postulatedUsers: [User!]
+    selectedUser: User
 }
 
 type Project {
@@ -54,6 +55,7 @@ type User {
     isAvailable: Boolean
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
+    joins: [Join!]
 }
 
 type AuthData {

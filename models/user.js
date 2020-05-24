@@ -27,6 +27,12 @@ const userSchema = new Schema({
       ref: 'Vacancy',
     },
   ],
+  joins: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Join',
+    },
+  ],
 });
 
 module.exports = model('User', userSchema);

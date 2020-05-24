@@ -21,17 +21,19 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
   }
   try {
     const user = await User.findById(userId);
-    const fetchedVacancy = await Vacancy.findById(vacancyId);
-    const fetchedProject = await Project.findById(fetchedVacancy.project);
+    const vacancy = await Vacancy.findById(vacancyId);
+    const project = await Project.findById(vacancy.project);
     const join = new Join({
       user: userId,
-      project: fetchedProject,
-      vacancy: fetchedVacancy,
+      project,
+      vacancy,
+      status: 'postulated',
     });
+    await user.joins.push(join._id);
     await user.joinedProjects.push(vacancyId);
-    await fetchedVacancy.postulatedUsers.push(userId);
+    await vacancy.postulatedUsers.push(userId);
     user.save();
-    fetchedVacancy.save();
+    vacancy.save();
     const result = await join.save();
     return transformJoin(result);
   } catch (error) {
