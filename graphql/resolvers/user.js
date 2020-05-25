@@ -27,7 +27,7 @@ const userById = async (args, { isAuth }) => {
   }
   const { userId } = args;
   try {
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).sort({ createdAt: -1 });
     return {
       ...user._doc,
       password: null,
@@ -75,7 +75,7 @@ const createUser = async ({
       { userId: user.id, email: user.email },
       'jwtsecretkey',
       {
-        expiresIn: '1h',
+        expiresIn: '24h',
       }
     );
     await user.save();
