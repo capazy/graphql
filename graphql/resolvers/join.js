@@ -11,7 +11,7 @@ const joins = async () => {
       return transformJoin(join);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -37,7 +37,7 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
     const result = await join.save();
     return transformJoin(result);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -57,7 +57,7 @@ const cancelJoin = async ({ joinId }, { isAuth, userId }) => {
     await Join.findByIdAndRemove(joinId);
     return transformVacancy(vacancy);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 

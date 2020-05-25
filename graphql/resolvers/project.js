@@ -21,7 +21,7 @@ const projects = async ({ skill }) => {
       return transformProject(project);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -48,7 +48,7 @@ const createProject = async (
     const result = await project.save();
     return transformProject(result);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -72,7 +72,7 @@ const cancelProject = async ({ projectId }, { isAuth, userId }) => {
     await Project.findByIdAndRemove(projectId);
     return transformProject(project);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 

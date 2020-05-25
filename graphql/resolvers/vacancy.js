@@ -10,7 +10,7 @@ const vacancies = async ({ projectId }) => {
       return transformVacancy(vacancy);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -51,7 +51,7 @@ const createVacancy = async (
     const result = await vacancy.save();
     return transformVacancy(result);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -75,7 +75,7 @@ const cancelVacancy = async ({ vacancyId }, { isAuth, userId }) => {
     await Join.findOneAndDelete({ vacancy: vacancyId });
     return transformVacancy(vacancy);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -102,7 +102,7 @@ const selectUser = async (
     const result = await vacancy.save();
     return transformVacancy(result);
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 

@@ -14,7 +14,7 @@ const singleVacancy = async (vacancyId) => {
       project: singleProject.bind(this, vacancy.project),
     };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -25,7 +25,7 @@ const vacancies = async (vacancyIds) => {
       return transformVacancy(vacancy);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -39,7 +39,7 @@ const singleProject = async (projectId) => {
       creator: singleUser.bind(this, project.creator),
     };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -50,7 +50,7 @@ const projects = async (projectIds) => {
       return transformProject(project);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -62,7 +62,7 @@ const joins = async (joinIds) => {
       return transformJoin(join);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -82,7 +82,7 @@ const singleUser = async (userId) => {
       joins: joins.bind(this, user.joins),
     };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -93,7 +93,7 @@ const users = async (userIds) => {
       return singleUser(user.id);
     });
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 

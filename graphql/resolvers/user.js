@@ -17,7 +17,7 @@ const user = async (args, { isAuth, userId }) => {
       joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -35,7 +35,7 @@ const userById = async (args, { isAuth }) => {
       joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -52,7 +52,7 @@ const users = async ({ skill }) => {
     }
     return users;
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -81,7 +81,7 @@ const createUser = async ({
     await user.save();
     return { userId: user.id, token, tokenExp: 1 };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -104,7 +104,7 @@ const login = async ({ loginInput: { email, password } }) => {
     );
     return { userId: user.id, token, tokenExp: 1 };
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
@@ -122,7 +122,7 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
     );
     return user;
   } catch (error) {
-    throw error;
+    throw new Error('Oops, something went wrong. Please try again later.');
   }
 };
 
