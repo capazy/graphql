@@ -43,7 +43,7 @@ const createProject = async (
   });
   try {
     const user = await User.findById(userId);
-    user.createdProjects.push(project);
+    user.createdProjects.unshift(project);
     user.save();
     const result = await project.save();
     return transformProject(result);

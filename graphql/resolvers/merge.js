@@ -20,7 +20,9 @@ const singleVacancy = async (vacancyId) => {
 
 const vacancies = async (vacancyIds) => {
   try {
-    const vacancies = await Vacancy.find({ _id: { $in: vacancyIds } });
+    const vacancies = await Vacancy.find({ _id: { $in: vacancyIds } }).sort({
+      createdAt: -1,
+    });
     return vacancies.map((vacancy) => {
       return transformVacancy(vacancy);
     });
@@ -45,7 +47,9 @@ const singleProject = async (projectId) => {
 
 const projects = async (projectIds) => {
   try {
-    const projects = await Project.find({ _id: { $in: projectIds } });
+    const projects = await Project.find({ _id: { $in: projectIds } }).sort({
+      createdAt: -1,
+    });
     return projects.map((project) => {
       return transformProject(project);
     });
@@ -57,7 +61,9 @@ const projects = async (projectIds) => {
 // join
 const joins = async (joinIds) => {
   try {
-    const joins = await Join.find({ _id: { $in: joinIds } });
+    const joins = await Join.find({ _id: { $in: joinIds } }).sort({
+      createdAt: -1,
+    });
     return joins.map((join) => {
       return transformJoin(join);
     });

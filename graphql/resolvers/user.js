@@ -104,7 +104,7 @@ const login = async ({ loginInput: { email, password } }) => {
     );
     return { userId: user.id, token, tokenExp: 1 };
   } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
+    throw error;
   }
 };
 
