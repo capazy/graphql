@@ -123,6 +123,7 @@ type RootQuery {
     users(skill: String!): [User!]!
     userById(userId: ID!): User!
     projects(skill: String!): [Project!]!
+    projectById(projectId: ID): Project!
     vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!
 }
