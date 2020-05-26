@@ -73,8 +73,18 @@ input ProjectInput {
     published: String!
 }
 
+input UpdateProjectInput {
+    projectId: ID
+    title: String!
+    description: String!
+    type: String!
+    startDate: String!
+    endDate: String!
+    published: String!
+}
+
 input VacancyInput {
-    projectId: ID!
+    projectId: ID
     title: String
     experience: String
     skills: [String!]
@@ -122,6 +132,7 @@ type RootMutation {
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project!
+    updateProject(projectInput: UpdateProjectInput): Project!
     createVacancy(vacancyInput: VacancyInput): Vacancy!
     joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!

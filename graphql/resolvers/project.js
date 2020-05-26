@@ -76,4 +76,23 @@ const cancelProject = async ({ projectId }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { projects, createProject, cancelProject };
+const updateProject = async ({ projectInput }, { isAuth, userId }) => {
+  // if (!isAuth) {
+  //   throw new Error('Unauthenticated');
+  // }
+  try {
+    console.log(projectInput.projectId);
+    const project = await Project.findOneAndUpdate(
+      { _id: projectInput.projectId },
+      {
+        $set: projectInput,
+      },
+      { new: true }
+    );
+    return transformProject(project);
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+module.exports = { projects, createProject, cancelProject, updateProject };
