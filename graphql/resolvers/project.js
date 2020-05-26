@@ -32,6 +32,7 @@ const projectById = async (args, { isAuth }) => {
     }
     const { projectId } = args;
     const project = await Project.findById(projectId).sort({ createdAt: -1 });
+
     return transformProject(project);
   } catch (error) {
     throw new Error('Oops, something went wrong. Please try again later.');
