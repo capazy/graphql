@@ -16,6 +16,8 @@ const userSchema = new Schema(
     companyDepartment: { type: String, default: null },
     country: { type: String, default: null },
     isAvailable: { type: Boolean, default: true },
+    profilePictureName: { type: String, default: null },
+    profilePictureUrl: { type: String, default: null },
     createdProjects: [
       {
         type: Schema.Types.ObjectId,

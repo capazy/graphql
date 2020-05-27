@@ -53,6 +53,8 @@ type User {
     companyDepartment: String
     country: String
     isAvailable: Boolean
+    profilePictureName: String
+    profilePictureUrl: String
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
     joins: [Join!]
@@ -101,6 +103,8 @@ input UpdateUserInput {
     companyName: String
     companyDepartment: String
     country: String
+    profilePictureName: String
+    profilePictureUrl: String
 }
 
 input LoginInput {
