@@ -134,7 +134,7 @@ type RootMutation {
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project!
     updateProject(projectInput: UpdateProjectInput): Project!
-    createVacancy(vacancyInput: VacancyInput): Vacancy!
+    createVacancy(vacancyInput: VacancyInput): Project!
     joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!
     cancelVacancy(vacancyId: ID!): Vacancy!

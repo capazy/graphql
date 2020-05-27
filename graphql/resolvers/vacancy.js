@@ -1,7 +1,7 @@
 const Project = require('../../models/project');
 const Vacancy = require('../../models/vacancy');
 const Join = require('../../models/join');
-const { transformVacancy } = require('./merge');
+const { transformVacancy, transformProject } = require('./merge');
 
 const vacancies = async ({ projectId }) => {
   try {
@@ -47,9 +47,10 @@ const createVacancy = async (
     skills.map((skill) => {
       fetchedProject.skills.push(skill);
     });
-    await fetchedProject.save();
-    const result = await vacancy.save();
-    return transformVacancy(result);
+    await vacancy.save();
+
+    const result = await fetchedProject.save();
+    return transformProject(result);
   } catch (error) {
     throw new Error('Oops, something went wrong. Please try again later.');
   }
