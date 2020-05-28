@@ -25,6 +25,20 @@ const projects = async ({ skill }) => {
   }
 };
 
+const projectById = async (args, { isAuth }) => {
+  try {
+    if (!isAuth) {
+      throw new Error('Unauthenticated');
+    }
+    const { projectId } = args;
+    const project = await Project.findById(projectId).sort({ createdAt: -1 });
+
+    return transformProject(project);
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
 const createProject = async (
   { projectInput: { title, description, type, startDate, endDate, published } },
   { isAuth, userId }
@@ -76,4 +90,28 @@ const cancelProject = async ({ projectId }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { projects, createProject, cancelProject };
+const updateProject = async ({ projectInput }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const project = await Project.findOneAndUpdate(
+      { _id: projectInput.projectId },
+      {
+        $set: projectInput,
+      },
+      { new: true }
+    );
+    return transformProject(project);
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+module.exports = {
+  projects,
+  createProject,
+  cancelProject,
+  updateProject,
+  projectById,
+};

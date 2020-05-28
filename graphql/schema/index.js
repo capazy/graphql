@@ -73,8 +73,18 @@ input ProjectInput {
     published: String!
 }
 
+input UpdateProjectInput {
+    projectId: ID
+    title: String!
+    description: String!
+    type: String!
+    startDate: String!
+    endDate: String!
+    published: String!
+}
+
 input VacancyInput {
-    projectId: ID!
+    projectId: ID
     title: String
     experience: String
     skills: [String!]
@@ -113,6 +123,7 @@ type RootQuery {
     users(skill: String!): [User!]!
     userById(userId: ID!): User!
     projects(skill: String!): [Project!]!
+    projectById(projectId: ID): Project!
     vacancies(projectId: ID!): [Vacancy!]!
     joins: [Join!]!
 }
@@ -122,7 +133,8 @@ type RootMutation {
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project!
-    createVacancy(vacancyInput: VacancyInput): Vacancy!
+    updateProject(projectInput: UpdateProjectInput): Project!
+    createVacancy(vacancyInput: VacancyInput): Project!
     joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!
     cancelVacancy(vacancyId: ID!): Vacancy!
