@@ -77,12 +77,13 @@ input ProjectInput {
 
 input UpdateProjectInput {
     projectId: ID
-    title: String!
-    description: String!
-    type: String!
-    startDate: String!
-    endDate: String!
-    published: String!
+    title: String
+    description: String
+    type: String
+    startDate: String
+    endDate: String
+    published: String
+    isOpen: Boolean
 }
 
 input VacancyInput {

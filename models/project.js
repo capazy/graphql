@@ -8,7 +8,7 @@ const projectSchema = new Schema(
     startDate: { type: Date, default: null },
     endDate: { type: Date, default: null },
     published: { type: String, default: null },
-    isOpen: { type: Boolean, default: true },
+    isOpen: { type: Boolean, default: false },
     skills: [{ type: String, default: null }],
     creator: {
       type: Schema.Types.ObjectId,
