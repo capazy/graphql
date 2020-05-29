@@ -37,6 +37,8 @@ const singleProject = async (projectId) => {
     const project = await Project.findById(projectId);
     return {
       ...project._doc,
+      startDate: dateToString(project.startDate),
+      endDate: dateToString(project.endDate),
       vacancies: vacancies.bind(this, project.vacancies),
       creator: singleUser.bind(this, project.creator),
     };
@@ -84,7 +86,7 @@ const singleUser = async (userId) => {
     return {
       ...user._doc,
       createdProjects: projects.bind(this, user.createdProjects),
-      joinedProjects: projects.bind(this, user.joinedProjects),
+      joinedProjects: vacancies.bind(this, user.joinedProjects),
       joins: joins.bind(this, user.joins),
     };
   } catch (error) {
