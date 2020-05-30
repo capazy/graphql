@@ -15,6 +15,7 @@ type Vacancy {
     _id: ID!
     project: Project!
     title: String!
+    description: String!
     experience: String!
     skills: [String!]!
     timeCommitment: Float!
@@ -89,6 +90,7 @@ input UpdateProjectInput {
 input VacancyInput {
     projectId: ID
     title: String
+    description: String!
     experience: String
     skills: [String!]
     timeCommitment: Float
