@@ -40,7 +40,7 @@ const projectById = async (args, { isAuth }) => {
 };
 
 const createProject = async (
-  { projectInput: { title, description, type, startDate, endDate, published } },
+  { projectInput: { title, description, type, startDate, endDate } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -52,7 +52,6 @@ const createProject = async (
     type,
     startDate,
     endDate,
-    published,
     creator: userId,
   });
   try {

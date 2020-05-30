@@ -73,10 +73,11 @@ const cancelVacancy = async ({ vacancyId }, { isAuth, userId }) => {
     );
     const index = project.vacancies.indexOf(removeUser);
     await project.vacancies.splice(index, 1);
-    await project.save();
     await Vacancy.findByIdAndRemove(vacancyId);
     await Join.findOneAndDelete({ vacancy: vacancyId });
-    return transformVacancy(vacancy);
+
+    const result = await project.save();
+    return transformProject(result);
   } catch (error) {
     throw new Error('Oops, something went wrong. Please try again later.');
   }

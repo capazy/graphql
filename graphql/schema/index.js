@@ -31,7 +31,7 @@ type Project {
     type: String!
     startDate: String!
     endDate: String!
-    published: String!
+    published: String
     isOpen: Boolean!
     skills: [String!]!
     creator: User!
@@ -73,7 +73,6 @@ input ProjectInput {
     type: String!
     startDate: String!
     endDate: String!
-    published: String!
 }
 
 input UpdateProjectInput {
@@ -83,7 +82,6 @@ input UpdateProjectInput {
     type: String
     startDate: String
     endDate: String
-    published: String
     isOpen: Boolean
 }
 
@@ -144,7 +142,7 @@ type RootMutation {
     createVacancy(vacancyInput: VacancyInput): Project!
     joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!
-    cancelVacancy(vacancyId: ID!): Vacancy!
+    cancelVacancy(vacancyId: ID!): Project!
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
 }
