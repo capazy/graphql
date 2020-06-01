@@ -84,6 +84,7 @@ input ProjectInput {
 
 input UpdateProjectInput {
     projectId: ID
+    method: String
     title: String
     description: String
     type: String

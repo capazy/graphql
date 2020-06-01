@@ -96,7 +96,7 @@ const updateProject = async ({ projectInput }, { isAuth, userId }) => {
   try {
     const project = await Project.findOneAndUpdate(
       { _id: projectInput.projectId },
-      { $set: projectInput },
+      { [projectInput.method]: projectInput },
       { new: true }
     );
     return transformProject(project);
