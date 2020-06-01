@@ -105,10 +105,25 @@ const updateProject = async ({ projectInput }, { isAuth, userId }) => {
   }
 };
 
+const deleteProjectFile = async ({ projectId, fileId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  const project = await Project.findById(projectId);
+  const deleteFile = project.files.find(
+    (file) => file._id.toString() === fileId
+  );
+  const index = project.files.indexOf(deleteFile);
+  await project.files.splice(index, 1);
+  const result = await project.save();
+  return transformProject(result);
+};
+
 module.exports = {
   projects,
   createProject,
   cancelProject,
   updateProject,
   projectById,
+  deleteProjectFile,
 };

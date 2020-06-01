@@ -159,6 +159,7 @@ type RootMutation {
     cancelVacancy(vacancyId: ID!): Project!
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
+    deleteProjectFile(projectId: ID!, fileId: ID!): Project!
 }
 
 schema {
