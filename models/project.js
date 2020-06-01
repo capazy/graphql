@@ -20,6 +20,12 @@ const projectSchema = new Schema(
         ref: 'Vacancy',
       },
     ],
+    files: [
+      {
+        name: { type: String, default: null },
+        url: { type: String, default: null },
+      },
+    ],
   },
   { timestamps: true }
 );

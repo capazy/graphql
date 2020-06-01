@@ -36,6 +36,13 @@ type Project {
     skills: [String!]!
     creator: User!
     vacancies: [Vacancy!]!
+    files: [File!]!
+}
+
+type File {
+    _id: ID!
+    name: String!
+    url: String!
 }
 
 type User {
@@ -83,6 +90,12 @@ input UpdateProjectInput {
     startDate: String
     endDate: String
     isOpen: Boolean
+    files: [FileInput]
+}
+
+input FileInput {
+    name: String!
+    url: String!
 }
 
 input VacancyInput {
