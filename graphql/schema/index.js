@@ -34,8 +34,17 @@ type Project {
     published: String
     isOpen: Boolean!
     skills: [String!]!
+    projectPictureName: String
+    projectPictureUrl: String
     creator: User!
     vacancies: [Vacancy!]!
+    files: [File!]!
+}
+
+type File {
+    _id: ID!
+    name: String!
+    url: String!
 }
 
 type User {
@@ -77,12 +86,21 @@ input ProjectInput {
 
 input UpdateProjectInput {
     projectId: ID
+    method: String
     title: String
     description: String
     type: String
     startDate: String
     endDate: String
     isOpen: Boolean
+    files: [FileInput]
+    projectPictureName: String
+    projectPictureUrl: String
+}
+
+input FileInput {
+    name: String!
+    url: String!
 }
 
 input VacancyInput {
@@ -145,6 +163,7 @@ type RootMutation {
     cancelVacancy(vacancyId: ID!): Project!
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
+    deleteProjectFile(projectId: ID!, fileId: ID!): Project!
 }
 
 schema {
