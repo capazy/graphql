@@ -15,6 +15,7 @@ type Vacancy {
     _id: ID!
     project: Project!
     title: String!
+    description: String!
     experience: String!
     skills: [String!]!
     timeCommitment: Float!
@@ -30,11 +31,20 @@ type Project {
     type: String!
     startDate: String!
     endDate: String!
-    published: String!
+    published: String
     isOpen: Boolean!
     skills: [String!]!
+    projectPictureName: String
+    projectPictureUrl: String
     creator: User!
     vacancies: [Vacancy!]!
+    files: [File!]!
+}
+
+type File {
+    _id: ID!
+    name: String!
+    url: String!
 }
 
 type User {
@@ -72,23 +82,31 @@ input ProjectInput {
     type: String!
     startDate: String!
     endDate: String!
-    published: String!
 }
 
 input UpdateProjectInput {
     projectId: ID
+    method: String
     title: String
     description: String
     type: String
     startDate: String
     endDate: String
-    published: String
     isOpen: Boolean
+    files: [FileInput]
+    projectPictureName: String
+    projectPictureUrl: String
+}
+
+input FileInput {
+    name: String!
+    url: String!
 }
 
 input VacancyInput {
     projectId: ID
     title: String
+    description: String!
     experience: String
     skills: [String!]
     timeCommitment: Float
@@ -142,9 +160,10 @@ type RootMutation {
     createVacancy(vacancyInput: VacancyInput): Project!
     joinVacancy(vacancyId: ID!): Join!
     cancelJoin(joinId: ID!): Vacancy!
-    cancelVacancy(vacancyId: ID!): Vacancy!
+    cancelVacancy(vacancyId: ID!): Project!
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
+    deleteProjectFile(projectId: ID!, fileId: ID!): Project!
 }
 
 schema {

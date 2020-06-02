@@ -10,6 +10,8 @@ const projectSchema = new Schema(
     published: { type: String, default: null },
     isOpen: { type: Boolean, default: false },
     skills: [{ type: String, default: null }],
+    projectPictureName: { type: String, default: null },
+    projectPictureUrl: { type: String, default: null },
     creator: {
       type: Schema.Types.ObjectId,
       ref: 'User',
@@ -18,6 +20,12 @@ const projectSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: 'Vacancy',
+      },
+    ],
+    files: [
+      {
+        name: { type: String, default: null },
+        url: { type: String, default: null },
       },
     ],
   },

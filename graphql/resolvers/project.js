@@ -40,7 +40,7 @@ const projectById = async (args, { isAuth }) => {
 };
 
 const createProject = async (
-  { projectInput: { title, description, type, startDate, endDate, published } },
+  { projectInput: { title, description, type, startDate, endDate } },
   { isAuth, userId }
 ) => {
   if (!isAuth) {
@@ -52,7 +52,6 @@ const createProject = async (
     type,
     startDate,
     endDate,
-    published,
     creator: userId,
   });
   try {
@@ -97,9 +96,7 @@ const updateProject = async ({ projectInput }, { isAuth, userId }) => {
   try {
     const project = await Project.findOneAndUpdate(
       { _id: projectInput.projectId },
-      {
-        $set: projectInput,
-      },
+      { [projectInput.method]: projectInput },
       { new: true }
     );
     return transformProject(project);
@@ -108,10 +105,25 @@ const updateProject = async ({ projectInput }, { isAuth, userId }) => {
   }
 };
 
+const deleteProjectFile = async ({ projectId, fileId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  const project = await Project.findById(projectId);
+  const deleteFile = project.files.find(
+    (file) => file._id.toString() === fileId
+  );
+  const index = project.files.indexOf(deleteFile);
+  await project.files.splice(index, 1);
+  const result = await project.save();
+  return transformProject(result);
+};
+
 module.exports = {
   projects,
   createProject,
   cancelProject,
   updateProject,
   projectById,
+  deleteProjectFile,
 };
