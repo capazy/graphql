@@ -34,6 +34,8 @@ type Project {
     published: String
     isOpen: Boolean!
     skills: [String!]!
+    projectPictureName: String
+    projectPictureUrl: String
     creator: User!
     vacancies: [Vacancy!]!
     files: [File!]!
@@ -92,6 +94,8 @@ input UpdateProjectInput {
     endDate: String
     isOpen: Boolean
     files: [FileInput]
+    projectPictureName: String
+    projectPictureUrl: String
 }
 
 input FileInput {
