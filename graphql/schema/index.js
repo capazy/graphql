@@ -33,12 +33,14 @@ type Project {
     endDate: String!
     published: String
     isOpen: Boolean!
+    views: Int
     skills: [String!]!
     projectPictureName: String
     projectPictureUrl: String
     creator: User!
     vacancies: [Vacancy!]!
     files: [File!]!
+    updatedAt: String
 }
 
 type File {
@@ -90,6 +92,7 @@ input UpdateProjectInput {
     title: String
     description: String
     type: String
+    views: Int
     startDate: String
     endDate: String
     isOpen: Boolean
