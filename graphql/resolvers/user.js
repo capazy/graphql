@@ -79,7 +79,7 @@ const createUser = async ({
       }
     );
     await user.save();
-    return { userId: user.id, token, tokenExp: 1 };
+    return { userId: user.id, token, tokenExp: 24 };
   } catch (error) {
     throw new Error('Oops, something went wrong. Please try again later.');
   }
