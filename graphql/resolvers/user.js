@@ -97,12 +97,12 @@ const login = async ({ loginInput: { email, password } }) => {
     }
     const token = await jwt.sign(
       { userId: user.id, email: user.email },
-      'jwtsecretkey',
-      {
-        expiresIn: '1h',
-      }
+      'jwtsecretkey'
+      // {
+      //   expiresIn: '24h',
+      // }
     );
-    return { userId: user.id, token, tokenExp: 1 };
+    return { userId: user.id, token, tokenExp: 24 };
   } catch (error) {
     throw error;
   }
