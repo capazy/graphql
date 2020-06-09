@@ -14,10 +14,10 @@
     "country": "Bermuda",
     "isAvailable": true,
     "createdProjects": [
-        { "$oid": "5eb5cfb43b94360007541547" },
-        { "$oid": "5eb5d1823b9436000754154a" }
-        { "$oid": "5eb5e136e68bb60007fc814d" }
-        { "$oid": "5eb5e22be68bb60007fc814f" }
+      { "$oid": "5eb5cfb43b94360007541547" },
+      { "$oid": "5eb5d1823b9436000754154a" },
+      { "$oid": "5eb5e136e68bb60007fc814d" },
+      { "$oid": "5eb5e22be68bb60007fc814f" }
     ],
     "joinedProjects": [],
     "email": "person1@email.com",
@@ -69,10 +69,10 @@
     "country": "Canada",
     "isAvailable": true,
     "createdProjects": [
-        { "$oid": "5eb5e32ae68bb60007fc8152" },
-        { "$oid": "5eb5e539e68bb60007fc8156" },
-        { "$oid": "5eb5e613e68bb60007fc8158" },
-        { "$oid": "5eb5f3999f921c0007441676" }
+      { "$oid": "5eb5e32ae68bb60007fc8152" },
+      { "$oid": "5eb5e539e68bb60007fc8156" },
+      { "$oid": "5eb5e613e68bb60007fc8158" },
+      { "$oid": "5eb5f3999f921c0007441676" }
     ],
     "joinedProjects": [],
     "email": "person3@email.com",
@@ -147,10 +147,10 @@
     "country": "Belize",
     "isAvailable": true,
     "createdProjects": [
-        { "$oid": "5eb5f5169f921c0007441679" },
-        { "$oid": "5ebc8d1bba6eb800089a6155" },
-        { "$oid": "5ebc8d8dba6eb800089a6158" },
-        { "$oid": "5ebc8e45adaf410008df684f" }
+      { "$oid": "5eb5f5169f921c0007441679" },
+      { "$oid": "5ebc8d1bba6eb800089a6155" },
+      { "$oid": "5ebc8d8dba6eb800089a6158" },
+      { "$oid": "5ebc8e45adaf410008df684f" }
     ],
     "joinedProjects": [],
     "email": "person6@email.com",
