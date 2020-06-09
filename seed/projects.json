@@ -1,24 +1,530 @@
-{"_id":{"$oid":"5eb5cfb43b94360007541547"},"title":"Social Media Campaigns","description":"Create COVID19 Social media Campaigns","type":"One-Time","startDate":{"$date":"2020-01-31T00:00:00.000Z"},"endDate":{"$date":"2020-05-31T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["ES8 Javascript","Facebook API","Facebook Pixel"],"vacancies":[{"$oid":"5eb5cfda3b94360007541549"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T21:31:32.738Z"},"updatedAt":{"$date":"2020-06-05T01:49:15.017Z"},"__v":"1","views":1}
-{"_id":{"$oid":"5eb5d1823b9436000754154a"},"title":"Mortgage Deferral Tool","description":"A tool to allow users to defer mortgage payments","type":"One-Time","startDate":{"$date":"2020-01-31T00:00:00.000Z"},"endDate":{"$date":"2020-05-12T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["Visual Basic","Excel Macros","Excel","Excel VB Capabilities","Financial Accounting","Contracts"],"vacancies":[{"$oid":"5eb5d1b23b9436000754154b"},{"$oid":"5eb5d2853b9436000754154c"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T21:39:14.797Z"},"updatedAt":{"$date":"2020-06-05T01:49:18.438Z"},"__v":"2","views":1}
-{"_id":{"$oid":"5eb5e136e68bb60007fc814d"},"title":"Credit Card Application On-line","description":"Allow clients to apply for a credit card online","type":"Complex","startDate":{"$date":"2020-07-31T00:00:00.000Z"},"endDate":{"$date":"2020-10-31T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["ABR Accredited Buyer Representative","Data Visualization","Adobe Dreamweaver","Visual Foxpro"],"vacancies":[{"$oid":"5eb5e16de68bb60007fc814e"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T22:46:14.821Z"},"updatedAt":{"$date":"2020-05-08T22:47:09.767Z"},"__v":"1"}
-{"_id":{"$oid":"5eb5e22be68bb60007fc814f"},"title":"Reporting on marketing Campaigns","description":"Produce online reports for stakeholders for the FB campaigns","type":"Ongoing","startDate":{"$date":"2020-05-31T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Company","isOpen":true,"skills":["Facebook API","Facebook Product Catalog","Facebook Development","Facebook Development","Offline Conversion Facebook API Integration","Server to Server Facebook API Integration"],"vacancies":[{"$oid":"5eb5e247e68bb60007fc8150"},{"$oid":"5eb5e262e68bb60007fc8151"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T22:50:19.550Z"},"updatedAt":{"$date":"2020-05-08T22:51:14.549Z"},"__v":"2"}
-{"_id":{"$oid":"5eb5e32ae68bb60007fc8152"},"title":"Google Analytics Report","description":"Produce Analytics reports by product and measure ROI based on conversions","type":"Ongoing","startDate":{"$date":"2020-05-31T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["Google Analytics","Google APIs","Google Analytics","Conversion Rate Optimisation","Google Adwords","Google Adwords","Google Adsense","Google Tag Management"],"vacancies":[{"$oid":"5eb5e345e68bb60007fc8153"},{"$oid":"5eb5e374e68bb60007fc8154"},{"$oid":"5eb5e3cfe68bb60007fc8155"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T22:54:34.687Z"},"updatedAt":{"$date":"2020-05-08T22:57:19.399Z"},"__v":"3"}
-{"_id":{"$oid":"5eb5e539e68bb60007fc8156"},"title":"Review Mortgage Agreement","description":"Review mortgage agreement to find potential problems with the current situation with COVID-19","type":"One-Time","startDate":{"$date":"2020-05-15T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["Legal Writing","Legal Research"],"vacancies":[{"$oid":"5eb5e55de68bb60007fc8157"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T23:03:21.859Z"},"updatedAt":{"$date":"2020-05-08T23:03:57.340Z"},"__v":"1"}
-{"_id":{"$oid":"5eb5e613e68bb60007fc8158"},"title":"Database Maintenance Tool","description":"Find a proper database maintenance tool to be able to implement in the organization","type":"Ongoing","startDate":{"$date":"2020-06-28T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Company","isOpen":true,"skills":["Oracle","Microsoft SQL Server","Internet Security","Google Cloud Storage","Oracle OBIEE"],"vacancies":[{"$oid":"5eb5e883e68bb60007fc8159"},{"$oid":"5eb5e8a0e68bb60007fc815a"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-08T23:06:59.824Z"},"updatedAt":{"$date":"2020-05-08T23:17:52.790Z"},"__v":"2"}
-{"_id":{"$oid":"5eb5f3999f921c0007441676"},"title":"Ipad teller design","description":"Design app for virtual tellers on new branches","type":"Ongoing","startDate":{"$date":"2020-08-31T00:00:00.000Z"},"endDate":{"$date":"2020-10-31T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["Redux.js","User Interface / IA","AIX Administration","iOS Development","Android Wear SDK"],"vacancies":[{"$oid":"5eb5f3bf9f921c0007441677"},{"$oid":"5eb5f3d69f921c0007441678"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-09T00:04:41.374Z"},"updatedAt":{"$date":"2020-06-05T01:59:20.140Z"},"__v":"2","views":1}
-{"_id":{"$oid":"5eb5f5169f921c0007441679"},"title":"App for car loan","description":"Application for a car loan to easily apply from your phone","type":"Ongoing","startDate":{"$date":"2020-05-30T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Department","isOpen":true,"skills":["iOS Development","Android","Redux.js","React Native","React.js","Open Cart"],"vacancies":[{"$oid":"5eb5f52b9f921c000744167a"},{"$oid":"5eb5f53b9f921c000744167b"},{"$oid":"5eb5f55d9f921c000744167c"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-09T00:11:02.147Z"},"updatedAt":{"$date":"2020-06-08T15:46:47.789Z"},"__v":"3","views":1}
-{"_id":{"$oid":"5ebc8d1bba6eb800089a6155"},"title":"Accounting Data Entry","description":"Posting data into GL Accounts","type":"Ongoing","startDate":{"$date":"2020-09-30T00:00:00.000Z"},"endDate":{"$date":"2020-12-31T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":["Accounting","Account Payables Management"],"vacancies":[{"$oid":"5ebc8d32ba6eb800089a6156"},{"$oid":"5ebc8d5bba6eb800089a6157"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-14T00:13:15.688Z"},"updatedAt":{"$date":"2020-06-05T15:14:29.805Z"},"__v":2,"views":2}
-{"_id":{"$oid":"5ebc8d8dba6eb800089a6158"},"title":"Internet Reserach","description":"research on the Internet","type":"One-Time","startDate":{"$date":"2020-06-30T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Department","isOpen":true,"skills":["Google Chrome","Google Earth","Google Sheets"],"vacancies":[{"$oid":"5ebc8db4ba6eb800089a6159"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-14T00:15:09.883Z"},"updatedAt":{"$date":"2020-05-14T00:15:48.497Z"},"__v":1}
-{"_id":{"$oid":"5ebc8e45adaf410008df684f"},"title":"AP Automation","description":"Automate AP Process","type":"Complex","startDate":{"$date":"2020-05-31T00:00:00.000Z"},"endDate":{"$date":"2020-08-31T00:00:00.000Z"},"published":"Company","isOpen":true,"skills":["Intuit QuickBooks","Financial Accounting","Tax Accounting","Zoho","Dynamic 365","Dynamics"],"vacancies":[{"$oid":"5ebc8e99adaf410008df6850"},{"$oid":"5ebc8ed1adaf410008df6851"}],"creator":{"$oid":"5eb5cf7c037892000700b2a1"},"createdAt":{"$date":"2020-05-14T00:18:13.864Z"},"updatedAt":{"$date":"2020-05-14T00:20:33.387Z"},"__v":2}
-{"_id":{"$oid":"5ececc2f3d8a290008e4174f"},"title":"Testing APP Project","description":"Testing App functionality and worflow","type":"One-Time","startDate":{"$date":"2020-04-29T00:00:00.000Z"},"endDate":{"$date":"2020-06-11T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":[".NET","Java Spring","React Native"],"vacancies":[{"$oid":"5ececc693d8a290008e41751"}],"creator":{"$oid":"5ebde88af290be00078eca51"},"createdAt":{"$date":"2020-05-27T20:23:11.251Z"},"updatedAt":{"$date":"2020-05-27T20:24:09.456Z"},"__v":1}
-{"_id":{"$oid":"5ed14bbb8d19760008383cd9"},"title":"Project Re-Structuring","description":"re-structure marketing department","type":"One-Time","startDate":{"$date":"2020-05-30T00:00:00.000Z"},"endDate":{"$date":"2020-06-12T00:00:00.000Z"},"published":"Company","isOpen":false,"skills":["Adobe Air","A+ Certified IT Technician"],"vacancies":[{"$oid":"5ed14ff8039590000770dfac"},{"$oid":"5ed15014039590000770dfad"}],"creator":{"$oid":"5ebc919cadaf410008df6854"},"createdAt":{"$date":"2020-05-29T17:51:55.621Z"},"updatedAt":{"$date":"2020-06-05T01:49:28.095Z"},"__v":2,"views":1}
-{"_id":{"$oid":"5ed15137039590000770dfae"},"title":"Test1","description":"Lorem","type":"One-Time","startDate":{"$date":"2020-05-29T00:00:00.000Z"},"endDate":{"$date":"2020-06-06T00:00:00.000Z"},"published":"Company","isOpen":true,"skills":[".NET",".NET"],"vacancies":[{"$oid":"5ed15144039590000770dfb0"},{"$oid":"5ed151b2093fa9000743fc8e"}],"creator":{"$oid":"5ecd80944dc80c00088c833d"},"createdAt":{"$date":"2020-05-29T18:15:19.068Z"},"updatedAt":{"$date":"2020-05-29T18:17:25.197Z"},"__v":2}
-{"_id":{"$oid":"5ed166ffd794fc0007d710f5"},"title":"Re-branding Commercial banking","description":"A commercial bank is a type of financial institution that accepts deposits, offers checking account services, makes various loans, and offers basic financial products like certificates of deposit (CDs) and savings accounts to individuals and small businesses\nWe are going to change ALL THAT","type":"Ongoing","startDate":{"$date":"2020-05-29T00:00:00.000Z"},"endDate":{"$date":"2020-07-31T00:00:00.000Z"},"published":"Company","isOpen":false,"skills":[],"vacancies":[],"creator":{"$oid":"5ebc919cadaf410008df6854"},"createdAt":{"$date":"2020-05-29T19:48:15.738Z"},"updatedAt":{"$date":"2020-06-05T01:49:40.148Z"},"__v":0,"views":1}
-{"_id":{"$oid":"5ed1690dd794fc0007d710f6"},"title":"Project Marketing 2","description":"A commercial bank is a type of financial institution that accepts deposits, offers checking account services, makes various loans, and offers basic financial products like certificates of deposit (CDs) and savings accounts to individuals and small businesses","type":"Complex","startDate":{"$date":"2020-05-31T00:00:00.000Z"},"endDate":{"$date":"2020-07-29T00:00:00.000Z"},"published":"Globally","isOpen":true,"skills":[".NET Core"],"vacancies":[{"$oid":"5ed1730b0b12560008b2aa4f"}],"creator":{"$oid":"5ebc919cadaf410008df6854"},"createdAt":{"$date":"2020-05-29T19:57:01.676Z"},"updatedAt":{"$date":"2020-06-08T14:23:56.552Z"},"__v":1,"views":1}
-{"_id":{"$oid":"5ed1717040a20400088f4baf"},"title":"FOR DANILO","description":"aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.","type":"One-Time","startDate":{"$date":"2020-05-29T00:00:00.000Z"},"endDate":{"$date":"2020-06-06T00:00:00.000Z"},"published":"Department","isOpen":true,"skills":[".NET"],"vacancies":[{"$oid":"5ed1717c40a20400088f4bb0"}],"creator":{"$oid":"5ecd80944dc80c00088c833d"},"createdAt":{"$date":"2020-05-29T20:32:48.791Z"},"updatedAt":{"$date":"2020-05-29T20:33:02.784Z"},"__v":1}
-{"_id":{"$oid":"5ed7233b1882770007d2c64b"},"title":"New","description":"1234","type":"One-Time","startDate":{"$date":"2020-06-03T00:00:00.000Z"},"endDate":{"$date":"2020-06-03T00:00:00.000Z"},"published":null,"isOpen":false,"skills":[],"projectPictureName":null,"projectPictureUrl":null,"vacancies":[],"creator":{"$oid":"5ec4ba7251f17b000724c627"},"files":[],"createdAt":{"$date":"2020-06-03T04:12:43.285Z"},"updatedAt":{"$date":"2020-06-08T14:24:37.340Z"},"__v":0,"views":1}
-{"_id":{"$oid":"5ed7233b77180b000760a244"},"title":"New","description":"1234","type":"One-Time","startDate":{"$date":"2020-06-03T00:00:00.000Z"},"endDate":{"$date":"2020-06-03T00:00:00.000Z"},"published":null,"isOpen":false,"skills":[".NET Core","A+ Certified IT Technician",".NET","4D"],"projectPictureName":null,"projectPictureUrl":"https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/B52BDA58-96E1-47BE-9A45-92D15089EC61.jpeg?alt=media\u0026token=9635bd81-9faf-4698-9e73-86fe029e5e36","vacancies":[{"$oid":"5ed7236477180b000760a245"},{"$oid":"5ed97016fc0d95000790b9ed"}],"creator":{"$oid":"5ec4ba7251f17b000724c627"},"files":[{"name":"D6D797FF-5579-4D89-B649-08400D8EDB5E.jpeg","url":"https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/D6D797FF-5579-4D89-B649-08400D8EDB5E.jpeg?alt=media\u0026token=0e482ff4-7546-4ee5-926c-c8b632c0e8de","_id":{"$oid":"5ed7240977180b000760a246"}},{"name":"78C78788-1E2F-4FF8-800E-97CB5D2CB608.jpeg","url":"https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/78C78788-1E2F-4FF8-800E-97CB5D2CB608.jpeg?alt=media\u0026token=fee231dd-1303-4ad7-a008-287b52bdf07a","_id":{"$oid":"5ed7240977180b000760a247"}}],"createdAt":{"$date":"2020-06-03T04:12:43.514Z"},"updatedAt":{"$date":"2020-06-05T01:49:45.946Z"},"__v":2,"views":1}
-{"_id":{"$oid":"5ed90b237cdc670008c182ba"},"title":"Testing again","description":"ntrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.","type":"One-Time","startDate":{"$date":"2020-06-05T00:00:00.000Z"},"endDate":{"$date":"2020-06-27T00:00:00.000Z"},"published":null,"isOpen":false,"skills":[".NET Core","Active Directory"],"projectPictureName":null,"projectPictureUrl":null,"vacancies":[{"$oid":"5ed90b3b7cdc670008c182bc"},{"$oid":"5ed9133f7cdc670008c182bf"}],"creator":{"$oid":"5ebc93a6adaf410008df6857"},"files":[],"createdAt":{"$date":"2020-06-04T14:54:27.747Z"},"updatedAt":{"$date":"2020-06-04T23:42:18.444Z"},"__v":2,"views":1}
-{"_id":{"$oid":"5ed915b876ffd30008658517"},"title":"Danilo otro Porjecto","description":"ntrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.","type":"One-Time","startDate":{"$date":"2020-06-05T00:00:00.000Z"},"endDate":{"$date":"2020-06-12T00:00:00.000Z"},"published":null,"isOpen":false,"skills":["All-Source Analysis",".NET Core"],"projectPictureName":null,"projectPictureUrl":null,"vacancies":[{"$oid":"5ed915e576ffd30008658518"},{"$oid":"5ed9162876ffd30008658519"}],"creator":{"$oid":"5ebc93a6adaf410008df6857"},"files":[],"createdAt":{"$date":"2020-06-04T15:39:36.967Z"},"updatedAt":{"$date":"2020-06-05T15:11:41.839Z"},"__v":2,"views":8}
-{"_id":{"$oid":"5eda61d2d11d1f000714969b"},"title":"Tratando","description":"Service Canada is a federal institution that is part of Employment and Social Development Canada.\n\nService Canada provides Canadians with a single point of access to a wide range of government services and benefits. We are committed to improving services for Canadians by working with partners to provide access to the full range of government services and benefits that Canadians want and need through the Internet, by telephone, in person or by mail.","type":"Ongoing","startDate":{"$date":"2020-06-10T00:00:00.000Z"},"endDate":{"$date":"2020-06-26T00:00:00.000Z"},"published":null,"isOpen":false,"skills":["4D","Microsoft Access","Boost"],"projectPictureName":null,"projectPictureUrl":"https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/IMG_4262.jpg?alt=media\u0026token=5ac8a1f4-e45d-4460-8ddd-c9f4c796bdd1","views":5,"vacancies":[{"$oid":"5eda6205d11d1f000714969c"}],"creator":{"$oid":"5ebc93a6adaf410008df6857"},"files":[{"name":"TICKET NUMBER  AIRLINE PASSENGER NAME LOCATOR Booking 66444437.pdf","url":"https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/TICKET%20NUMBER%20%20AIRLINE%20PASSENGER%20NAME%20LOCATOR%20Booking%2066444437.pdf?alt=media\u0026token=e8b73d4d-f230-4364-8fab-5bcc6885e9d4","_id":{"$oid":"5eda624fa5ca3700094abacb"}}],"createdAt":{"$date":"2020-06-05T15:16:34.143Z"},"updatedAt":{"$date":"2020-06-08T14:22:55.776Z"},"__v":1}
-{"_id":{"$oid":"5ede5ab397d23800080681b0"},"title":"Teaching Niclas Math","description":"Ensenar a Nicolas Matematicas","type":"Ongoing","startDate":{"$date":"2020-06-04T00:00:00.000Z"},"endDate":{"$date":"2020-06-19T00:00:00.000Z"},"published":null,"isOpen":false,"skills":[".NET Core","Angular Material"],"projectPictureName":null,"projectPictureUrl":"https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/Screen%20Shot%202020-06-09%20at%2010.01.58%20AM.png?alt=media\u0026token=9d684f2b-dbff-48e5-94cb-95791669d98b","views":1,"vacancies":[{"$oid":"5ede5acc97d23800080681b1"}],"creator":{"$oid":"5ebc919cadaf410008df6854"},"files":[],"createdAt":{"$date":"2020-06-08T15:35:15.156Z"},"updatedAt":{"$date":"2020-06-09T14:02:25.079Z"},"__v":2}
+[
+  {
+    "_id": { "$oid": "5eb5cfb43b94360007541547" },
+    "title": "Social Media Campaigns",
+    "description": "Create COVID19 Social media Campaigns",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-01-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-05-31T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": ["ES8 Javascript", "Facebook API", "Facebook Pixel"],
+    "vacancies": [{ "$oid": "5eb5cfda3b94360007541549" }],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T21:31:32.738Z" },
+    "updatedAt": { "$date": "2020-06-05T01:49:15.017Z" },
+    "__v": "1",
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5eb5d1823b9436000754154a" },
+    "title": "Mortgage Deferral Tool",
+    "description": "A tool to allow users to defer mortgage payments",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-01-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-05-12T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": [
+      "Visual Basic",
+      "Excel Macros",
+      "Excel",
+      "Excel VB Capabilities",
+      "Financial Accounting",
+      "Contracts"
+    ],
+    "vacancies": [
+      { "$oid": "5eb5d1b23b9436000754154b" },
+      { "$oid": "5eb5d2853b9436000754154c" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T21:39:14.797Z" },
+    "updatedAt": { "$date": "2020-06-05T01:49:18.438Z" },
+    "__v": "2",
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5eb5e136e68bb60007fc814d" },
+    "title": "Credit Card Application On-line",
+    "description": "Allow clients to apply for a credit card online",
+    "type": "Complex",
+    "startDate": { "$date": "2020-07-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-10-31T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": [
+      "ABR Accredited Buyer Representative",
+      "Data Visualization",
+      "Adobe Dreamweaver",
+      "Visual Foxpro"
+    ],
+    "vacancies": [{ "$oid": "5eb5e16de68bb60007fc814e" }],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T22:46:14.821Z" },
+    "updatedAt": { "$date": "2020-05-08T22:47:09.767Z" },
+    "__v": "1"
+  },
+  {
+    "_id": { "$oid": "5eb5e22be68bb60007fc814f" },
+    "title": "Reporting on marketing Campaigns",
+    "description": "Produce online reports for stakeholders for the FB campaigns",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-05-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Company",
+    "isOpen": true,
+    "skills": [
+      "Facebook API",
+      "Facebook Product Catalog",
+      "Facebook Development",
+      "Facebook Development",
+      "Offline Conversion Facebook API Integration",
+      "Server to Server Facebook API Integration"
+    ],
+    "vacancies": [
+      { "$oid": "5eb5e247e68bb60007fc8150" },
+      { "$oid": "5eb5e262e68bb60007fc8151" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T22:50:19.550Z" },
+    "updatedAt": { "$date": "2020-05-08T22:51:14.549Z" },
+    "__v": "2"
+  },
+  {
+    "_id": { "$oid": "5eb5e32ae68bb60007fc8152" },
+    "title": "Google Analytics Report",
+    "description": "Produce Analytics reports by product and measure ROI based on conversions",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-05-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": [
+      "Google Analytics",
+      "Google APIs",
+      "Google Analytics",
+      "Conversion Rate Optimisation",
+      "Google Adwords",
+      "Google Adwords",
+      "Google Adsense",
+      "Google Tag Management"
+    ],
+    "vacancies": [
+      { "$oid": "5eb5e345e68bb60007fc8153" },
+      { "$oid": "5eb5e374e68bb60007fc8154" },
+      { "$oid": "5eb5e3cfe68bb60007fc8155" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T22:54:34.687Z" },
+    "updatedAt": { "$date": "2020-05-08T22:57:19.399Z" },
+    "__v": "3"
+  },
+  {
+    "_id": { "$oid": "5eb5e539e68bb60007fc8156" },
+    "title": "Review Mortgage Agreement",
+    "description": "Review mortgage agreement to find potential problems with the current situation with COVID-19",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-05-15T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": ["Legal Writing", "Legal Research"],
+    "vacancies": [{ "$oid": "5eb5e55de68bb60007fc8157" }],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T23:03:21.859Z" },
+    "updatedAt": { "$date": "2020-05-08T23:03:57.340Z" },
+    "__v": "1"
+  },
+  {
+    "_id": { "$oid": "5eb5e613e68bb60007fc8158" },
+    "title": "Database Maintenance Tool",
+    "description": "Find a proper database maintenance tool to be able to implement in the organization",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-06-28T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Company",
+    "isOpen": true,
+    "skills": [
+      "Oracle",
+      "Microsoft SQL Server",
+      "Internet Security",
+      "Google Cloud Storage",
+      "Oracle OBIEE"
+    ],
+    "vacancies": [
+      { "$oid": "5eb5e883e68bb60007fc8159" },
+      { "$oid": "5eb5e8a0e68bb60007fc815a" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-08T23:06:59.824Z" },
+    "updatedAt": { "$date": "2020-05-08T23:17:52.790Z" },
+    "__v": "2"
+  },
+  {
+    "_id": { "$oid": "5eb5f3999f921c0007441676" },
+    "title": "Ipad teller design",
+    "description": "Design app for virtual tellers on new branches",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-10-31T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": [
+      "Redux.js",
+      "User Interface / IA",
+      "AIX Administration",
+      "iOS Development",
+      "Android Wear SDK"
+    ],
+    "vacancies": [
+      { "$oid": "5eb5f3bf9f921c0007441677" },
+      { "$oid": "5eb5f3d69f921c0007441678" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-09T00:04:41.374Z" },
+    "updatedAt": { "$date": "2020-06-05T01:59:20.140Z" },
+    "__v": "2",
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5eb5f5169f921c0007441679" },
+    "title": "App for car loan",
+    "description": "Application for a car loan to easily apply from your phone",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-05-30T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Department",
+    "isOpen": true,
+    "skills": [
+      "iOS Development",
+      "Android",
+      "Redux.js",
+      "React Native",
+      "React.js",
+      "Open Cart"
+    ],
+    "vacancies": [
+      { "$oid": "5eb5f52b9f921c000744167a" },
+      { "$oid": "5eb5f53b9f921c000744167b" },
+      { "$oid": "5eb5f55d9f921c000744167c" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-09T00:11:02.147Z" },
+    "updatedAt": { "$date": "2020-06-08T15:46:47.789Z" },
+    "__v": "3",
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ebc8d1bba6eb800089a6155" },
+    "title": "Accounting Data Entry",
+    "description": "Posting data into GL Accounts",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-09-30T00:00:00.000Z" },
+    "endDate": { "$date": "2020-12-31T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": ["Accounting", "Account Payables Management"],
+    "vacancies": [
+      { "$oid": "5ebc8d32ba6eb800089a6156" },
+      { "$oid": "5ebc8d5bba6eb800089a6157" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-14T00:13:15.688Z" },
+    "updatedAt": { "$date": "2020-06-05T15:14:29.805Z" },
+    "__v": 2,
+    "views": 2
+  },
+  {
+    "_id": { "$oid": "5ebc8d8dba6eb800089a6158" },
+    "title": "Internet Reserach",
+    "description": "research on the Internet",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-06-30T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Department",
+    "isOpen": true,
+    "skills": ["Google Chrome", "Google Earth", "Google Sheets"],
+    "vacancies": [{ "$oid": "5ebc8db4ba6eb800089a6159" }],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-14T00:15:09.883Z" },
+    "updatedAt": { "$date": "2020-05-14T00:15:48.497Z" },
+    "__v": 1
+  },
+  {
+    "_id": { "$oid": "5ebc8e45adaf410008df684f" },
+    "title": "AP Automation",
+    "description": "Automate AP Process",
+    "type": "Complex",
+    "startDate": { "$date": "2020-05-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-08-31T00:00:00.000Z" },
+    "published": "Company",
+    "isOpen": true,
+    "skills": [
+      "Intuit QuickBooks",
+      "Financial Accounting",
+      "Tax Accounting",
+      "Zoho",
+      "Dynamic 365",
+      "Dynamics"
+    ],
+    "vacancies": [
+      { "$oid": "5ebc8e99adaf410008df6850" },
+      { "$oid": "5ebc8ed1adaf410008df6851" }
+    ],
+    "creator": { "$oid": "5eb5cf7c037892000700b2a1" },
+    "createdAt": { "$date": "2020-05-14T00:18:13.864Z" },
+    "updatedAt": { "$date": "2020-05-14T00:20:33.387Z" },
+    "__v": 2
+  },
+  {
+    "_id": { "$oid": "5ececc2f3d8a290008e4174f" },
+    "title": "Testing APP Project",
+    "description": "Testing App functionality and worflow",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-04-29T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-11T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": [".NET", "Java Spring", "React Native"],
+    "vacancies": [{ "$oid": "5ececc693d8a290008e41751" }],
+    "creator": { "$oid": "5ebde88af290be00078eca51" },
+    "createdAt": { "$date": "2020-05-27T20:23:11.251Z" },
+    "updatedAt": { "$date": "2020-05-27T20:24:09.456Z" },
+    "__v": 1
+  },
+  {
+    "_id": { "$oid": "5ed14bbb8d19760008383cd9" },
+    "title": "Project Re-Structuring",
+    "description": "re-structure marketing department",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-05-30T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-12T00:00:00.000Z" },
+    "published": "Company",
+    "isOpen": false,
+    "skills": ["Adobe Air", "A+ Certified IT Technician"],
+    "vacancies": [
+      { "$oid": "5ed14ff8039590000770dfac" },
+      { "$oid": "5ed15014039590000770dfad" }
+    ],
+    "creator": { "$oid": "5ebc919cadaf410008df6854" },
+    "createdAt": { "$date": "2020-05-29T17:51:55.621Z" },
+    "updatedAt": { "$date": "2020-06-05T01:49:28.095Z" },
+    "__v": 2,
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ed15137039590000770dfae" },
+    "title": "Test1",
+    "description": "Lorem",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-05-29T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-06T00:00:00.000Z" },
+    "published": "Company",
+    "isOpen": true,
+    "skills": [".NET", ".NET"],
+    "vacancies": [
+      { "$oid": "5ed15144039590000770dfb0" },
+      { "$oid": "5ed151b2093fa9000743fc8e" }
+    ],
+    "creator": { "$oid": "5ecd80944dc80c00088c833d" },
+    "createdAt": { "$date": "2020-05-29T18:15:19.068Z" },
+    "updatedAt": { "$date": "2020-05-29T18:17:25.197Z" },
+    "__v": 2
+  },
+  {
+    "_id": { "$oid": "5ed166ffd794fc0007d710f5" },
+    "title": "Re-branding Commercial banking",
+    "description": "A commercial bank is a type of financial institution that accepts deposits, offers checking account services, makes various loans, and offers basic financial products like certificates of deposit (CDs) and savings accounts to individuals and small businesses\nWe are going to change ALL THAT",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-05-29T00:00:00.000Z" },
+    "endDate": { "$date": "2020-07-31T00:00:00.000Z" },
+    "published": "Company",
+    "isOpen": false,
+    "skills": [],
+    "vacancies": [],
+    "creator": { "$oid": "5ebc919cadaf410008df6854" },
+    "createdAt": { "$date": "2020-05-29T19:48:15.738Z" },
+    "updatedAt": { "$date": "2020-06-05T01:49:40.148Z" },
+    "__v": 0,
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ed1690dd794fc0007d710f6" },
+    "title": "Project Marketing 2",
+    "description": "A commercial bank is a type of financial institution that accepts deposits, offers checking account services, makes various loans, and offers basic financial products like certificates of deposit (CDs) and savings accounts to individuals and small businesses",
+    "type": "Complex",
+    "startDate": { "$date": "2020-05-31T00:00:00.000Z" },
+    "endDate": { "$date": "2020-07-29T00:00:00.000Z" },
+    "published": "Globally",
+    "isOpen": true,
+    "skills": [".NET Core"],
+    "vacancies": [{ "$oid": "5ed1730b0b12560008b2aa4f" }],
+    "creator": { "$oid": "5ebc919cadaf410008df6854" },
+    "createdAt": { "$date": "2020-05-29T19:57:01.676Z" },
+    "updatedAt": { "$date": "2020-06-08T14:23:56.552Z" },
+    "__v": 1,
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ed1717040a20400088f4baf" },
+    "title": "FOR DANILO",
+    "description": "aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-05-29T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-06T00:00:00.000Z" },
+    "published": "Department",
+    "isOpen": true,
+    "skills": [".NET"],
+    "vacancies": [{ "$oid": "5ed1717c40a20400088f4bb0" }],
+    "creator": { "$oid": "5ecd80944dc80c00088c833d" },
+    "createdAt": { "$date": "2020-05-29T20:32:48.791Z" },
+    "updatedAt": { "$date": "2020-05-29T20:33:02.784Z" },
+    "__v": 1
+  },
+  {
+    "_id": { "$oid": "5ed7233b1882770007d2c64b" },
+    "title": "New",
+    "description": "1234",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-06-03T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-03T00:00:00.000Z" },
+    "published": null,
+    "isOpen": false,
+    "skills": [],
+    "projectPictureName": null,
+    "projectPictureUrl": null,
+    "vacancies": [],
+    "creator": { "$oid": "5ec4ba7251f17b000724c627" },
+    "files": [],
+    "createdAt": { "$date": "2020-06-03T04:12:43.285Z" },
+    "updatedAt": { "$date": "2020-06-08T14:24:37.340Z" },
+    "__v": 0,
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ed7233b77180b000760a244" },
+    "title": "New",
+    "description": "1234",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-06-03T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-03T00:00:00.000Z" },
+    "published": null,
+    "isOpen": false,
+    "skills": [".NET Core", "A+ Certified IT Technician", ".NET", "4D"],
+    "projectPictureName": null,
+    "projectPictureUrl": "https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/B52BDA58-96E1-47BE-9A45-92D15089EC61.jpeg?alt=media\u0026token=9635bd81-9faf-4698-9e73-86fe029e5e36",
+    "vacancies": [
+      { "$oid": "5ed7236477180b000760a245" },
+      { "$oid": "5ed97016fc0d95000790b9ed" }
+    ],
+    "creator": { "$oid": "5ec4ba7251f17b000724c627" },
+    "files": [
+      {
+        "name": "D6D797FF-5579-4D89-B649-08400D8EDB5E.jpeg",
+        "url": "https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/D6D797FF-5579-4D89-B649-08400D8EDB5E.jpeg?alt=media\u0026token=0e482ff4-7546-4ee5-926c-c8b632c0e8de",
+        "_id": { "$oid": "5ed7240977180b000760a246" }
+      },
+      {
+        "name": "78C78788-1E2F-4FF8-800E-97CB5D2CB608.jpeg",
+        "url": "https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/78C78788-1E2F-4FF8-800E-97CB5D2CB608.jpeg?alt=media\u0026token=fee231dd-1303-4ad7-a008-287b52bdf07a",
+        "_id": { "$oid": "5ed7240977180b000760a247" }
+      }
+    ],
+    "createdAt": { "$date": "2020-06-03T04:12:43.514Z" },
+    "updatedAt": { "$date": "2020-06-05T01:49:45.946Z" },
+    "__v": 2,
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ed90b237cdc670008c182ba" },
+    "title": "Testing again",
+    "description": "ntrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-06-05T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-27T00:00:00.000Z" },
+    "published": null,
+    "isOpen": false,
+    "skills": [".NET Core", "Active Directory"],
+    "projectPictureName": null,
+    "projectPictureUrl": null,
+    "vacancies": [
+      { "$oid": "5ed90b3b7cdc670008c182bc" },
+      { "$oid": "5ed9133f7cdc670008c182bf" }
+    ],
+    "creator": { "$oid": "5ebc93a6adaf410008df6857" },
+    "files": [],
+    "createdAt": { "$date": "2020-06-04T14:54:27.747Z" },
+    "updatedAt": { "$date": "2020-06-04T23:42:18.444Z" },
+    "__v": 2,
+    "views": 1
+  },
+  {
+    "_id": { "$oid": "5ed915b876ffd30008658517" },
+    "title": "Danilo otro Porjecto",
+    "description": "ntrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+    "type": "One-Time",
+    "startDate": { "$date": "2020-06-05T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-12T00:00:00.000Z" },
+    "published": null,
+    "isOpen": false,
+    "skills": ["All-Source Analysis", ".NET Core"],
+    "projectPictureName": null,
+    "projectPictureUrl": null,
+    "vacancies": [
+      { "$oid": "5ed915e576ffd30008658518" },
+      { "$oid": "5ed9162876ffd30008658519" }
+    ],
+    "creator": { "$oid": "5ebc93a6adaf410008df6857" },
+    "files": [],
+    "createdAt": { "$date": "2020-06-04T15:39:36.967Z" },
+    "updatedAt": { "$date": "2020-06-05T15:11:41.839Z" },
+    "__v": 2,
+    "views": 8
+  },
+  {
+    "_id": { "$oid": "5eda61d2d11d1f000714969b" },
+    "title": "Tratando",
+    "description": "Service Canada is a federal institution that is part of Employment and Social Development Canada.\n\nService Canada provides Canadians with a single point of access to a wide range of government services and benefits. We are committed to improving services for Canadians by working with partners to provide access to the full range of government services and benefits that Canadians want and need through the Internet, by telephone, in person or by mail.",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-06-10T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-26T00:00:00.000Z" },
+    "published": null,
+    "isOpen": false,
+    "skills": ["4D", "Microsoft Access", "Boost"],
+    "projectPictureName": null,
+    "projectPictureUrl": "https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/IMG_4262.jpg?alt=media\u0026token=5ac8a1f4-e45d-4460-8ddd-c9f4c796bdd1",
+    "views": 5,
+    "vacancies": [{ "$oid": "5eda6205d11d1f000714969c" }],
+    "creator": { "$oid": "5ebc93a6adaf410008df6857" },
+    "files": [
+      {
+        "name": "TICKET NUMBER  AIRLINE PASSENGER NAME LOCATOR Booking 66444437.pdf",
+        "url": "https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/TICKET%20NUMBER%20%20AIRLINE%20PASSENGER%20NAME%20LOCATOR%20Booking%2066444437.pdf?alt=media\u0026token=e8b73d4d-f230-4364-8fab-5bcc6885e9d4",
+        "_id": { "$oid": "5eda624fa5ca3700094abacb" }
+      }
+    ],
+    "createdAt": { "$date": "2020-06-05T15:16:34.143Z" },
+    "updatedAt": { "$date": "2020-06-08T14:22:55.776Z" },
+    "__v": 1
+  },
+  {
+    "_id": { "$oid": "5ede5ab397d23800080681b0" },
+    "title": "Teaching Niclas Math",
+    "description": "Ensenar a Nicolas Matematicas",
+    "type": "Ongoing",
+    "startDate": { "$date": "2020-06-04T00:00:00.000Z" },
+    "endDate": { "$date": "2020-06-19T00:00:00.000Z" },
+    "published": null,
+    "isOpen": false,
+    "skills": [".NET Core", "Angular Material"],
+    "projectPictureName": null,
+    "projectPictureUrl": "https://firebasestorage.googleapis.com/v0/b/fb-capazy.appspot.com/o/Screen%20Shot%202020-06-09%20at%2010.01.58%20AM.png?alt=media\u0026token=9d684f2b-dbff-48e5-94cb-95791669d98b",
+    "views": 1,
+    "vacancies": [{ "$oid": "5ede5acc97d23800080681b1" }],
+    "creator": { "$oid": "5ebc919cadaf410008df6854" },
+    "files": [],
+    "createdAt": { "$date": "2020-06-08T15:35:15.156Z" },
+    "updatedAt": { "$date": "2020-06-09T14:02:25.079Z" },
+    "__v": 2
+  }
+]
