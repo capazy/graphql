@@ -336,7 +336,7 @@
     "published": "Globally",
     "isOpen": true,
     "skills": [".NET Core"],
-    "vacancies": [{ "$oid": "5ed1730b0b12560008b2aa4f" }],
+    "vacancies": [],
     "creator": { "$oid": "5ebc919cadaf410008df6854" },
     "createdAt": { "$date": "2020-05-29T19:57:01.676Z" },
     "updatedAt": { "$date": "2020-06-08T14:23:56.552Z" },
