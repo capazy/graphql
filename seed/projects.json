@@ -286,7 +286,7 @@
     "published": "Globally",
     "isOpen": true,
     "skills": [".NET", "Java Spring", "React Native"],
-    "vacancies": [{ "$oid": "5ececc693d8a290008e41751" }],
+    "vacancies": [],
     "creator": { "$oid": "5ebde88af290be00078eca51" },
     "createdAt": { "$date": "2020-05-27T20:23:11.251Z" },
     "updatedAt": { "$date": "2020-05-27T20:24:09.456Z" },
@@ -302,10 +302,7 @@
     "published": "Company",
     "isOpen": false,
     "skills": ["Adobe Air", "A+ Certified IT Technician"],
-    "vacancies": [
-      { "$oid": "5ed14ff8039590000770dfac" },
-      { "$oid": "5ed15014039590000770dfad" }
-    ],
+    "vacancies": [{ "$oid": "5ed15014039590000770dfad" }],
     "creator": { "$oid": "5ebc919cadaf410008df6854" },
     "createdAt": { "$date": "2020-05-29T17:51:55.621Z" },
     "updatedAt": { "$date": "2020-06-05T01:49:28.095Z" },
