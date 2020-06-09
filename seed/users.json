@@ -13,7 +13,12 @@
     "companyDepartment": "Accointing",
     "country": "Bermuda",
     "isAvailable": true,
-    "createdProjects": [],
+    "createdProjects": [
+        { "$oid": "5eb5cfb43b94360007541547" },
+        { "$oid": "5eb5d1823b9436000754154a" }
+        { "$oid": "5eb5e136e68bb60007fc814d" }
+        { "$oid": "5eb5e22be68bb60007fc814f" }
+    ],
     "joinedProjects": [],
     "email": "person1@email.com",
     "password": "$2a$12$Zj1khiFP0ea9I3Ok50ulgOKu.S6WnVEMcAo/1dl8OsLwaqPzB/ete",
@@ -37,7 +42,6 @@
     "country": "Dominican Republic",
     "isAvailable": true,
     "createdProjects": [
-      { "$oid": "5ede5ab397d23800080681b0" },
       { "$oid": "5ed1690dd794fc0007d710f6" },
       { "$oid": "5ed166ffd794fc0007d710f5" },
       { "$oid": "5ed14bbb8d19760008383cd9" }
@@ -65,9 +69,10 @@
     "country": "Canada",
     "isAvailable": true,
     "createdProjects": [
-      { "$oid": "5eda61d2d11d1f000714969b" },
-      { "$oid": "5ed915b876ffd30008658517" },
-      { "$oid": "5ed90b237cdc670008c182ba" }
+        { "$oid": "5eb5e32ae68bb60007fc8152" },
+        { "$oid": "5eb5e539e68bb60007fc8156" },
+        { "$oid": "5eb5e613e68bb60007fc8158" },
+        { "$oid": "5eb5f3999f921c0007441676" }
     ],
     "joinedProjects": [],
     "email": "person3@email.com",
@@ -141,7 +146,12 @@
     "companyDepartment": "Credit Department",
     "country": "Belize",
     "isAvailable": true,
-    "createdProjects": [],
+    "createdProjects": [
+        { "$oid": "5eb5f5169f921c0007441679" },
+        { "$oid": "5ebc8d1bba6eb800089a6155" },
+        { "$oid": "5ebc8d8dba6eb800089a6158" },
+        { "$oid": "5ebc8e45adaf410008df684f" }
+    ],
     "joinedProjects": [],
     "email": "person6@email.com",
     "password": "$2a$12$aFe..R1173Q/pZoAGHMp1.noh8KtuQNeZlmkMfsldm4jPyAD2aTh.",
