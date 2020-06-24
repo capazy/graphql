@@ -140,6 +140,15 @@ const transformVacancy = (vacancy) => {
   };
 };
 
+const transformJob = (job) => {
+  return {
+    ...job._doc,
+    creator: singleUser.bind(this, job.creator),
+    createdAt: dateToString(job.createdAt),
+    updatedAt: dateToString(job.updatedAt),
+  };
+};
+
 module.exports = {
   projects,
   vacancies,
@@ -147,4 +156,5 @@ module.exports = {
   transformProject,
   transformJoin,
   transformVacancy,
+  transformJob,
 };

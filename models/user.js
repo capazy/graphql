@@ -36,6 +36,12 @@ const userSchema = new Schema(
         ref: 'Join',
       },
     ],
+    createdJobs: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Job',
+      },
+    ],
   },
   { timestamps: true }
 );

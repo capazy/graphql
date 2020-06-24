@@ -43,6 +43,24 @@ type Project {
     updatedAt: String
 }
 
+type Job {
+    _id: ID!
+    title: String!
+    description: String!
+    type: String!
+    expertise: String!
+    skills: [String!]!
+    salaryType: String!
+    salary: String!
+    files: [File!]!
+    companyName: String!
+    companyDescription: String!
+    companyLocation: String!
+    companyLogo: String!
+    views: Int
+    creator: User!
+}
+
 type File {
     _id: ID!
     name: String!
@@ -116,6 +134,10 @@ input VacancyInput {
     timeCommitmentUnits: String
 }
 
+input JobInput {
+    title: String!
+}
+
 input createUserInput {
     email: String!
     password: String!
@@ -167,6 +189,7 @@ type RootMutation {
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
     deleteProjectFile(projectId: ID!, fileId: ID!): Project!
+    createJob(jobInput: JobInput): Job!
 }
 
 schema {
