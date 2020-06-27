@@ -52,7 +52,6 @@ type Job {
     skills: [String!]!
     salaryType: String!
     salary: String!
-    files: [File!]!
     companyName: String!
     companyDescription: String!
     companyLocation: String!

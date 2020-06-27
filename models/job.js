@@ -10,12 +10,12 @@ const jobSchema = new Schema(
     skills: [{ type: String, default: null }],
     salaryType: { type: String, default: null },
     salary: { type: String, default: null },
-    files: [
-      {
-        name: { type: String, default: null },
-        url: { type: String, default: null },
-      },
-    ],
+    // files: [
+    //   {
+    //     name: { type: String, default: null },
+    //     url: { type: String, default: null },
+    //   },
+    // ],
 
     // company
     companyName: { type: String, default: null },
