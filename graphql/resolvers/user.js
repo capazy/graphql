@@ -108,6 +108,16 @@ const login = async ({ loginInput: { email, password } }) => {
   }
 };
 
+const passportSign = async ({ token }, { user }) => {
+  try {
+    console.log('TOKEN', token);
+    console.log('USER', user);
+    return { token };
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
 const updateUser = async ({ userInput }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
@@ -126,4 +136,12 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { createUser, login, updateUser, user, users, userById };
+module.exports = {
+  createUser,
+  login,
+  updateUser,
+  user,
+  users,
+  userById,
+  passportSign,
+};

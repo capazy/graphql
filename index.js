@@ -4,6 +4,7 @@ const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolvers = require('./graphql/resolvers');
 const isAuth = require('./middleware/isAuth');
+const passport = require('./middleware/passport');
 const { connectDB } = require('./db');
 const app = express();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 // middlewares
 app.use(express.json({ extended: false }));
+app.use(passport);
 app.use(isAuth);
 
 // graphql route

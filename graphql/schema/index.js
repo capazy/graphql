@@ -176,6 +176,7 @@ type RootQuery {
 }
 
 type RootMutation {
+    passportSign(token: String!): AuthData!
     createUser(userInput: createUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
