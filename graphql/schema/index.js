@@ -61,9 +61,9 @@ type Job {
 }
 
 type File {
-    _id: ID!
-    name: String!
-    url: String!
+    _id: ID
+    name: String
+    url: String
 }
 
 type User {
@@ -93,6 +93,11 @@ type AuthData {
     userId: ID!
     token: String!
     tokenExp: Int!
+}
+
+
+type AuthPassport {
+    token: String!
 }
 
 input ProjectInput {
@@ -176,7 +181,7 @@ type RootQuery {
 }
 
 type RootMutation {
-    passportSign(token: String!): AuthData!
+    passportSign(token: String!): AuthPassport!
     createUser(userInput: createUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
