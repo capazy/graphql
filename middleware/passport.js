@@ -18,9 +18,13 @@ passport.use(
       clientSecret: 'eXoetPM1U7d4BuqNqYYZiz8U',
       callbackURL: 'http://localhost:5000/auth/google/callback',
     },
-    function (accessToken, refreshToken, profile, done) {
-      console.log('PROFILE_GOOGLE', profile);
-      return done(null, profile);
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        // console.log('MMIDLE', profile);
+        return done(null, { profile });
+      } catch (error) {
+        console.log(error);
+      }
     }
   )
 );

@@ -138,8 +138,33 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
 
 const google = async (req, res) => {
   try {
-    console.log(req.body);
-    res.status(200).json(req.body);
+    const {
+      sub: methodId,
+      given_name: firstName,
+      family_name: lastName,
+      picture: profilePictureUrl,
+      email,
+    } = req.user.profile._json;
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return console.log('USER EXIST', existingUser);
+    }
+    const user = new User({
+      email,
+      firstName,
+      lastName,
+    });
+    console.log('USER NEW', user);
+    const token = await jwt.sign(
+      { userId: user.id, email: user.email },
+      'jwtsecretkey',
+      {
+        expiresIn: '24h',
+      }
+    );
+    await user.save();
+    return { userId: user.id, token, tokenExp: 24 };
   } catch (error) {
     console.log(error);
   }

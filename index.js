@@ -4,7 +4,7 @@ const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolvers = require('./graphql/resolvers');
 const isAuth = require('./middleware/isAuth');
-// const { google } = require('./graphql/resolvers');
+const { google } = require('./graphql/resolvers');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 require('./middleware/passport');
@@ -39,6 +39,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.post('/test', (req, res) => {
+  console.log('TEST', req.body);
+  res.send(req.body);
+});
+
 // atuh routes
 app.get(
   '/auth/google',
@@ -54,10 +59,7 @@ app.get('/good', (req, res) => res.send('LOGIN SUCCEEDED'));
 app.get(
   '/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/fail' }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/good');
-  }
+  google
 );
 app.get(
   '/auth/linkedin/callback',
