@@ -139,23 +139,26 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
 const google = async (req, res) => {
   try {
     const {
-      sub: methodId,
-      given_name: firstName,
-      family_name: lastName,
-      picture: profilePictureUrl,
-      email,
-    } = req.user.profile._json;
+      id: methodId,
+      name: { givenName: firstName, familyName: lastName },
+      emails,
+      photos,
+    } = req.user.profile;
+    const email = emails[0].value;
+    const profilePictureUrl = photos[0].value;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return console.log('USER EXIST', existingUser);
+      return res.status(401).json({
+        message: 'User already exists',
+      });
     }
     const user = new User({
-      email,
       firstName,
       lastName,
+      email,
+      profilePictureUrl,
     });
-    console.log('USER NEW', user);
     const token = await jwt.sign(
       { userId: user.id, email: user.email },
       'jwtsecretkey',
@@ -164,9 +167,11 @@ const google = async (req, res) => {
       }
     );
     await user.save();
-    return { userId: user.id, token, tokenExp: 24 };
+    return res.status(200).json({ userId: user.id, token, tokenExp: 24 });
   } catch (error) {
-    console.log(error);
+    return res.status(500).json({
+      message: 'Server Error',
+    });
   }
 };
 

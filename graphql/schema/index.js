@@ -95,11 +95,6 @@ type AuthData {
     tokenExp: Int!
 }
 
-
-type AuthPassport {
-    token: String!
-}
-
 input ProjectInput {
     title: String!
     description: String!
@@ -181,7 +176,6 @@ type RootQuery {
 }
 
 type RootMutation {
-    passportSign(token: String!): AuthPassport!
     createUser(userInput: createUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 

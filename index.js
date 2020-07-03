@@ -1,4 +1,5 @@
 require('dotenv-flow').config();
+require('./middleware/passport');
 const express = require('express');
 const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
@@ -6,8 +7,7 @@ const graphqlResolvers = require('./graphql/resolvers');
 const isAuth = require('./middleware/isAuth');
 const { google } = require('./graphql/resolvers');
 const passport = require('passport');
-const cookieSession = require('cookie-session');
-require('./middleware/passport');
+const passportGoogle = passport.authenticate('google', { session: false });
 const { connectDB } = require('./db');
 const app = express();
 
@@ -27,53 +27,10 @@ app.use((req, res, next) => {
 
 // middlewares
 app.use(express.json({ extended: false }));
-// app.use(passport);
 app.use(isAuth);
 
-app.use(
-  cookieSession({
-    name: 'capazy-session',
-    keys: ['key1', 'key2'],
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.post('/test', (req, res) => {
-  console.log('TEST', req.body);
-  res.send(req.body);
-});
-
-// atuh routes
-app.get(
-  '/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email'],
-  })
-);
-app.get('/auth/linkedin', passport.authenticate('linkedin'));
-
-app.get('/fail', (req, res) => res.send('LOGIN FAIL'));
-app.get('/good', (req, res) => res.send('LOGIN SUCCEEDED'));
-
-app.get(
-  '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/fail' }),
-  google
-);
-app.get(
-  '/auth/linkedin/callback',
-  passport.authenticate('linkedin', {
-    successRedirect: '/good',
-    failureRedirect: '/fail',
-  })
-);
-
-app.get('/logout', (req, res) => {
-  req.session = null;
-  req.logout();
-  res.redirect('/');
-});
+// auth route
+app.post('/auth/google', passportGoogle, google);
 
 // graphql route
 app.use(
@@ -84,6 +41,16 @@ app.use(
     graphiql: true,
   })
 );
+
+// handle REST errors
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    error: {
+      message: error.message,
+    },
+  });
+});
 
 // connect server
 app.listen(5000, () => {
