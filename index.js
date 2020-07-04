@@ -5,12 +5,14 @@ const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolvers = require('./graphql/resolvers');
 const isAuth = require('./middleware/isAuth');
-const { google } = require('./graphql/resolvers');
+const { google, fetchUser } = require('./graphql/resolvers');
 const passport = require('passport');
 const passportGoogle = passport.authenticate('google', { session: false });
 const { connectDB } = require('./db');
 const app = express();
-
+const cookieSession = require('cookie-session');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('./middleware/passport');
 // connect database
 connectDB();
 
@@ -24,13 +26,37 @@ app.use((req, res, next) => {
   }
   next();
 });
+// app.use(passport.initialize());
 
 // middlewares
 app.use(express.json({ extended: false }));
 app.use(isAuth);
+app.use(
+  cookieSession({
+    name: 'capazy-session',
+    keys: ['key1', 'key2'],
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get(
+  '/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+  })
+);
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/fail' }),
+  google
+);
+
+app.get('/user', fetchUser);
 
 // auth route
-app.post('/auth/google', passportGoogle, google);
+// app.post('/auth/google', passportGoogle, google);
 
 // graphql route
 app.use(

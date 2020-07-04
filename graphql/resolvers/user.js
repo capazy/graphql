@@ -136,7 +136,7 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-const google = async (req, res) => {
+const google = async (req, res, next) => {
   try {
     const {
       id: methodId,
@@ -167,12 +167,25 @@ const google = async (req, res) => {
       }
     );
     await user.save();
-    return res.status(200).json({ userId: user.id, token, tokenExp: 24 });
+    // res.redirect('http://localhost:3000/feed');
+    // return res.status(200).json({ userId: user.id, token, tokenExp: 24 });
+    req.userId = user.id;
+    req.token = token;
+    req.tokenExp = 24;
+
+    return res.redirect('http://localhost:3000/feed');
   } catch (error) {
     return res.status(500).json({
       message: 'Server Error',
     });
   }
+};
+
+const fetchUser = async (req, res) => {
+  const { userId, token, tokenExp } = req;
+  const result = { userId, token, tokenExp };
+  console.log('result', result);
+  res.send(result);
 };
 
 module.exports = {
@@ -184,4 +197,5 @@ module.exports = {
   userById,
   passportSign,
   google,
+  fetchUser,
 };
