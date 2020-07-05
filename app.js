@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const { connectDB } = require('./db');
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 
 // graphql
 const graphqlHttp = require('express-graphql');
@@ -51,13 +52,7 @@ app.use(passport.session());
 app.use('/auth', authRoutes);
 
 // user routes
-app.get('/api/user', (req, res) => {
-  res.send(req.user);
-});
-app.get('/api/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
+app.use('/api', userRoutes);
 
 // graphql route
 app.use(

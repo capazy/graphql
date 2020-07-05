@@ -108,16 +108,6 @@ const login = async ({ loginInput: { email, password } }) => {
   }
 };
 
-const passportSign = async ({ token }, { user }) => {
-  try {
-    console.log('TOKEN', token);
-    console.log('USER', user);
-    return { token };
-  } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
-  }
-};
-
 const updateUser = async ({ userInput }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
@@ -136,25 +126,6 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-const google = async (req, res) => {
-  try {
-    const {
-      user: { id: userId, email },
-    } = req;
-    const token = await jwt.sign({ userId, email }, 'jwtsecretkey', {
-      expiresIn: '24h',
-    });
-    const result = { userId, token, tokenExp: 24 };
-    console.log('RES', result);
-    req.user = result;
-    return res.redirect('/');
-  } catch (error) {
-    return res.status(500).json({
-      message: 'Server Error',
-    });
-  }
-};
-
 module.exports = {
   createUser,
   login,
@@ -162,6 +133,4 @@ module.exports = {
   user,
   users,
   userById,
-  passportSign,
-  google,
 };
