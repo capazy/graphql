@@ -136,56 +136,23 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-const google = async (req, res, next) => {
+const google = async (req, res) => {
   try {
     const {
-      id: methodId,
-      name: { givenName: firstName, familyName: lastName },
-      emails,
-      photos,
-    } = req.user.profile;
-    const email = emails[0].value;
-    const profilePictureUrl = photos[0].value;
-
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(401).json({
-        message: 'User already exists',
-      });
-    }
-    const user = new User({
-      firstName,
-      lastName,
-      email,
-      profilePictureUrl,
+      user: { id: userId, email },
+    } = req;
+    const token = await jwt.sign({ userId, email }, 'jwtsecretkey', {
+      expiresIn: '24h',
     });
-    const token = await jwt.sign(
-      { userId: user.id, email: user.email },
-      'jwtsecretkey',
-      {
-        expiresIn: '24h',
-      }
-    );
-    await user.save();
-    // res.redirect('http://localhost:3000/feed');
-    // return res.status(200).json({ userId: user.id, token, tokenExp: 24 });
-    req.userId = user.id;
-    req.token = token;
-    req.tokenExp = 24;
-
-    return res.redirect('http://localhost:3000/feed');
+    const result = { userId, token, tokenExp: 24 };
+    console.log('RES', result);
+    req.user = result;
+    return res.redirect('/');
   } catch (error) {
     return res.status(500).json({
       message: 'Server Error',
     });
   }
-};
-
-const fetchUser = async (req, res) => {
-  const { userId, token, tokenExp } = req;
-  const result = { userId, token, tokenExp };
-  console.log('result', result);
-  res.send(result);
 };
 
 module.exports = {
@@ -197,5 +164,4 @@ module.exports = {
   userById,
   passportSign,
   google,
-  fetchUser,
 };
