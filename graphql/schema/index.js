@@ -49,6 +49,8 @@ type File {
     url: String!
 }
 
+
+
 type User {
     _id: ID
     email: String!
@@ -67,9 +69,38 @@ type User {
     isAvailable: Boolean
     profilePictureName: String
     profilePictureUrl: String
+    workExperience: [Experience!]!
+    education: [Education!]!
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
     joins: [Join!]
+}
+
+type Experience {
+    _id: ID!
+    title: String!
+    companyName: String!
+    yearsOfExperience: String!
+    description: String!
+    skills: [String!]
+}
+
+
+input ExperienceInput {
+    title: String!
+    companyName: String!
+    yearsOfExperience: String!
+    description: String!
+    skills: [String!]
+}
+
+type Education {
+    _id: ID!
+    title: String!  
+}
+
+input EducationInput {
+    title: String!
 }
 
 type AuthData {
@@ -134,6 +165,8 @@ input UpdateUserInput {
     experience: String
     companyName: String
     companyDepartment: String
+    workExperience: [ExperienceInput]
+    education: [EducationInput]
     country: String
     profilePictureName: String
     profilePictureUrl: String

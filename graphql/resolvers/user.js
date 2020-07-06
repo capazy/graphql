@@ -112,6 +112,7 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
+  console.log(userInput);
   try {
     const user = await User.findOneAndUpdate(
       { _id: userId },
