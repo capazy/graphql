@@ -1,7 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -47,6 +47,46 @@ passport.use(
       } catch (error) {
         console.log(error);
       }
+    }
+  )
+);
+
+passport.use(
+  new LinkedInStrategy(
+    {
+      clientID: '78ru8oyls8x9ca',
+      clientSecret: 'YarbT520u0I3a2gY',
+      callbackURL: 'http://localhost:5000/auth/linkedin/callback',
+      scope: ['r_emailaddress', 'r_liteprofile'],
+      state: true,
+    },
+    function (accessToken, refreshToken, profile, done) {
+      process.nextTick(async () => {
+        try {
+          const {
+            id: methodId,
+            name: { givenName: firstName, familyName: lastName },
+            emails,
+            photos,
+          } = profile;
+          const email = emails[0].value;
+          const profilePictureUrl = photos[3].value;
+          const existingUser = await User.findOne({ email });
+          if (existingUser) {
+            return done(null, existingUser);
+          }
+          const user = new User({
+            firstName,
+            lastName,
+            email,
+            profilePictureUrl,
+          });
+          await user.save();
+          return done(null, user);
+        } catch (error) {
+          console.log(error);
+        }
+      });
     }
   )
 );

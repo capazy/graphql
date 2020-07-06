@@ -11,7 +11,10 @@ router.get('/user', async (req, res) => {
         expiresIn: '24h',
       }
     );
-    const result = { userId: req.user.id, token, tokenExp: 24 };
+    const result = {
+      auth: { userId: req.user.id, token, tokenExp: 24 },
+      user: req.user,
+    };
     return res.send(result);
   } catch (error) {
     console.log(error);
