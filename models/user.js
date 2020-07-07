@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
+    methodId: { type: String, default: null },
     email: { type: String, required: true },
     password: { type: String },
     firstName: { type: String, default: null },

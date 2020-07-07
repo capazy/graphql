@@ -6,10 +6,7 @@ router.get('/user', async (req, res) => {
   try {
     const token = await jwt.sign(
       { userId: req.user.id, email: req.user },
-      'jwtsecretkey',
-      {
-        expiresIn: '24h',
-      }
+      'jwtsecretkey'
     );
     const result = {
       auth: { userId: req.user.id, token, tokenExp: 24 },

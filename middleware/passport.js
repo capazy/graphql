@@ -37,6 +37,7 @@ passport.use(
           return done(null, existingUser);
         }
         const user = new User({
+          methodId,
           firstName,
           lastName,
           email,
@@ -76,6 +77,7 @@ passport.use(
             return done(null, existingUser);
           }
           const user = new User({
+            methodId,
             firstName,
             lastName,
             email,
