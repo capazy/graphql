@@ -18,6 +18,25 @@ const userSchema = new Schema(
     isAvailable: { type: Boolean, default: true },
     profilePictureName: { type: String, default: null },
     profilePictureUrl: { type: String, default: null },
+    workExperience: [
+      {
+        title: { type: String, default: null },
+        companyName: { type: String, default: null },
+        yearsOfExperience: { type: String, default: null },
+        description: { type: String, default: null },
+        skills: [{ type: String, default: null }],
+      },
+    ],
+
+    education: [
+      {
+        degree: { type: String, default: null },
+        school: { type: String, default: null },
+        year: { type: String, default: null },
+        fieldOfStudy: { type: String, default: null },
+      },
+    ],
+
     createdProjects: [
       {
         type: Schema.Types.ObjectId,
