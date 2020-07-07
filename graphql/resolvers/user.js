@@ -127,4 +127,26 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
-module.exports = { createUser, login, updateUser, user, users, userById };
+const createExperience = async ({ experienceInput }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    user.workExperience.push(experienceInput);
+    await user.save();
+    return user;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+module.exports = {
+  createUser,
+  login,
+  updateUser,
+  user,
+  users,
+  userById,
+  createExperience,
+};
