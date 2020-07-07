@@ -96,11 +96,17 @@ input ExperienceInput {
 
 type Education {
     _id: ID!
-    title: String!  
+    degree: String!
+    school: String!
+    year: String!
+    fieldOfStudy: String!
 }
 
 input EducationInput {
-    title: String!
+    degree: String!
+    school: String!
+    year: String!
+    fieldOfStudy: String!
 }
 
 type AuthData {
