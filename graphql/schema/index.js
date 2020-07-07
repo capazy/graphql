@@ -95,6 +95,10 @@ type AuthData {
     tokenExp: Int!
 }
 
+type Email {
+    status: String!
+}
+
 input ProjectInput {
     title: String!
     description: String!
@@ -137,7 +141,7 @@ input JobInput {
     title: String!
 }
 
-input createUserInput {
+input CreateUserInput {
     email: String!
     password: String!
     firstName: String!
@@ -176,7 +180,7 @@ type RootQuery {
 }
 
 type RootMutation {
-    createUser(userInput: createUserInput): AuthData!
+    createUser(userInput: CreateUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project!
@@ -189,6 +193,7 @@ type RootMutation {
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
     deleteProjectFile(projectId: ID!, fileId: ID!): Project!
     createJob(jobInput: JobInput): Job!
+    sendEmail(email: String!, message: String!): Email!
 }
 
 schema {

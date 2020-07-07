@@ -3,6 +3,7 @@ const projectResolver = require('./project');
 const joinResolver = require('./join');
 const vacancyResolver = require('./vacancy');
 const jobResolver = require('./job');
+const emailResolver = require('./email');
 
 const rootResolver = {
   ...userResolver,
@@ -10,6 +11,7 @@ const rootResolver = {
   ...joinResolver,
   ...vacancyResolver,
   ...jobResolver,
+  ...emailResolver,
 };
 
 module.exports = rootResolver;
