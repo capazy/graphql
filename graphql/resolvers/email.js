@@ -14,7 +14,8 @@ const sendEmail = async ({ email, message }) => {
     };
     const res = await sgMail.send(msg);
     const { statusCode } = res[0];
-    return { status: statusCode };
+    const result = { status: statusCode };
+    return result;
   } catch (error) {
     throw error;
   }
