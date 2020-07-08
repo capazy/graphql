@@ -112,7 +112,7 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
-  console.log(userInput);
+
   try {
     const user = await User.findOneAndUpdate(
       { _id: userId },
@@ -141,6 +141,25 @@ const createExperience = async ({ experienceInput }, { isAuth, userId }) => {
   }
 };
 
+const deleteExperience = async ({ experienceId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    const removeExperience = user.workExperience.find(
+      (exp) => exp.id === experienceId
+    );
+    const index = user.workExperience.indexOf(removeExperience);
+    await user.workExperience.splice(index, 1);
+    const result = await user.save();
+
+    return result;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
 module.exports = {
   createUser,
   login,
@@ -149,4 +168,5 @@ module.exports = {
   users,
   userById,
   createExperience,
+  deleteExperience,
 };
