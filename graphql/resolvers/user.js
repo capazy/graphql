@@ -107,6 +107,7 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
+
   try {
     const user = await User.findOneAndUpdate(
       { _id: userId },
@@ -121,6 +122,72 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   }
 };
 
+const createExperience = async ({ experienceInput }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    user.workExperience.push(experienceInput);
+    await user.save();
+    return user;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+const deleteExperience = async ({ experienceId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    const removeExperience = user.workExperience.find(
+      (exp) => exp.id === experienceId
+    );
+    const index = user.workExperience.indexOf(removeExperience);
+    await user.workExperience.splice(index, 1);
+    const result = await user.save();
+
+    return result;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+const createEducation = async ({ educationInput }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    user.education.push(educationInput);
+    await user.save();
+    return user;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+const deleteEducation = async ({ educationId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    const removeEducation = user.education.find(
+      (edu) => edu.id === educationId
+    );
+    const index = user.workExperience.indexOf(removeEducation);
+    await user.education.splice(index, 1);
+    const result = await user.save();
+
+    return result;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
 module.exports = {
   createUser,
   login,
@@ -128,4 +195,8 @@ module.exports = {
   user,
   users,
   userById,
+  createExperience,
+  deleteExperience,
+  createEducation,
+  deleteEducation,
 };

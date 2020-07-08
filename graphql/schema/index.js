@@ -66,6 +66,8 @@ type File {
     url: String
 }
 
+
+
 type User {
     _id: ID
     email: String!
@@ -84,9 +86,44 @@ type User {
     isAvailable: Boolean
     profilePictureName: String
     profilePictureUrl: String
+    workExperience: [Experience!]!
+    education: [Education!]!
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
     joins: [Join!]
+}
+
+type Experience {
+    _id: ID!
+    title: String!
+    companyName: String!
+    yearsOfExperience: String!
+    description: String!
+    skills: [String!]
+}
+
+
+input ExperienceInput {
+    title: String!
+    companyName: String!
+    yearsOfExperience: String!
+    description: String!
+    skills: [String!]
+}
+
+type Education {
+    _id: ID!
+    degree: String!
+    school: String!
+    year: String!
+    fieldOfStudy: String!
+}
+
+input EducationInput {
+    degree: String!
+    school: String!
+    year: String!
+    fieldOfStudy: String!
 }
 
 type AuthData {
@@ -159,6 +196,8 @@ input UpdateUserInput {
     experience: String
     companyName: String
     companyDepartment: String
+    workExperience: [ExperienceInput]
+    education: [EducationInput]
     country: String
     profilePictureName: String
     profilePictureUrl: String
@@ -182,6 +221,10 @@ type RootQuery {
 type RootMutation {
     createUser(userInput: CreateUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
+    createExperience(experienceInput: ExperienceInput): User!
+    deleteExperience(experienceId: ID!): User!
+    createEducation(educationInput: EducationInput): User!
+    deleteEducation(educationId: ID!): User!
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project!
     updateProject(projectInput: UpdateProjectInput): Project!
