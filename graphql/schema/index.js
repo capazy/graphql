@@ -43,10 +43,27 @@ type Project {
     updatedAt: String
 }
 
-type File {
+type Job {
     _id: ID!
-    name: String!
-    url: String!
+    title: String!
+    description: String!
+    type: String!
+    expertise: String!
+    skills: [String!]!
+    salaryType: String!
+    salary: String!
+    companyName: String!
+    companyDescription: String!
+    companyLocation: String!
+    companyLogo: String!
+    views: Int
+    creator: User!
+}
+
+type File {
+    _id: ID
+    name: String
+    url: String
 }
 
 
@@ -115,6 +132,10 @@ type AuthData {
     tokenExp: Int!
 }
 
+type Email {
+    status: String!
+}
+
 input ProjectInput {
     title: String!
     description: String!
@@ -153,7 +174,11 @@ input VacancyInput {
     timeCommitmentUnits: String
 }
 
-input createUserInput {
+input JobInput {
+    title: String!
+}
+
+input CreateUserInput {
     email: String!
     password: String!
     firstName: String!
@@ -194,7 +219,7 @@ type RootQuery {
 }
 
 type RootMutation {
-    createUser(userInput: createUserInput): AuthData!
+    createUser(userInput: CreateUserInput): AuthData!
     updateUser(userInput: UpdateUserInput): User!
     createExperience(experienceInput: ExperienceInput): User!
     deleteExperience(experienceId: ID!): User!
@@ -210,6 +235,8 @@ type RootMutation {
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
     deleteProjectFile(projectId: ID!, fileId: ID!): Project!
+    createJob(jobInput: JobInput): Job!
+    sendEmail(email: String!, message: String!): Email!
 }
 
 schema {

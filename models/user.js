@@ -2,8 +2,9 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
+    methodId: { type: String, default: null },
     email: { type: String, required: true },
-    password: { type: String, required: true },
+    password: { type: String },
     firstName: { type: String, default: null },
     lastName: { type: String, default: null },
     description: { type: String, default: null },
@@ -53,6 +54,12 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: 'Join',
+      },
+    ],
+    createdJobs: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Job',
       },
     ],
   },

@@ -17,7 +17,7 @@ const user = async (args, { isAuth, userId }) => {
       joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
   } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
+    throw error;
   }
 };
 
@@ -35,7 +35,7 @@ const userById = async (args, { isAuth }) => {
       joinedProjects: vacancies.bind(this, user.joinedProjects),
     };
   } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
+    throw error;
   }
 };
 
@@ -61,6 +61,7 @@ const createUser = async ({
 }) => {
   try {
     const existingUser = await User.findOne({ email });
+    console.log(existingUser);
     if (existingUser) {
       throw new Error('User exists already.');
     }
@@ -73,15 +74,12 @@ const createUser = async ({
     });
     const token = await jwt.sign(
       { userId: user.id, email: user.email },
-      'jwtsecretkey',
-      {
-        expiresIn: '24h',
-      }
+      'jwtsecretkey'
     );
     await user.save();
     return { userId: user.id, token, tokenExp: 24 };
   } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
+    throw error;
   }
 };
 
@@ -98,9 +96,6 @@ const login = async ({ loginInput: { email, password } }) => {
     const token = await jwt.sign(
       { userId: user.id, email: user.email },
       'jwtsecretkey'
-      // {
-      //   expiresIn: '24h',
-      // }
     );
     return { userId: user.id, token, tokenExp: 24 };
   } catch (error) {
@@ -123,7 +118,7 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
     );
     return user;
   } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
+    throw error;
   }
 };
 
