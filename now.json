@@ -13,5 +13,8 @@
     "APOLLO_API_URI": "@apollo-api-uri",
     "CLIENT_URI": "@client-uri"
   },
-  "routes": [{ "src": "/api/.*", "dest": "/index.js" }]
+  "routes": [
+    { "src": "/auth/.*", "dest": "/index.js" },
+    { "src": "/api/.*", "dest": "/index.js" }
+  ]
 }
