@@ -19,7 +19,7 @@ router.get('/google/callback', passport.authenticate('google'), (req, res) => {
 router.get(
   '/linkedin/callback',
   passport.authenticate('linkedin', {
-    successRedirect: 'http://localhost:3000/loading',
+    successRedirect: `${process.env.CLIENT_URI}/loading`,
     failureRedirect: '/fail',
   })
 );

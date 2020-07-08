@@ -57,7 +57,7 @@ passport.use(
     {
       clientID: '78ru8oyls8x9ca',
       clientSecret: 'YarbT520u0I3a2gY',
-      callbackURL: 'http://localhost:5000/auth/linkedin/callback',
+      callbackURL: `${process.env.APOLLO_API_URI}/auth/linkedin/callback`,
       scope: ['r_emailaddress', 'r_liteprofile'],
       state: true,
     },
