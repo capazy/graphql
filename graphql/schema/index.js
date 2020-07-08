@@ -198,6 +198,8 @@ type RootMutation {
     updateUser(userInput: UpdateUserInput): User!
     createExperience(experienceInput: ExperienceInput): User!
     deleteExperience(experienceId: ID!): User!
+    createEducation(educationInput: EducationInput): User!
+    deleteEducation(educationId: ID!): User!
     login(loginInput: LoginInput): AuthData! 
     createProject(projectInput: ProjectInput): Project!
     updateProject(projectInput: UpdateProjectInput): Project!

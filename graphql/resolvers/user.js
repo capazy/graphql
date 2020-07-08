@@ -160,6 +160,39 @@ const deleteExperience = async ({ experienceId }, { isAuth, userId }) => {
   }
 };
 
+const createEducation = async ({ educationInput }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    user.education.push(educationInput);
+    await user.save();
+    return user;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
+const deleteEducation = async ({ educationId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  try {
+    const user = await User.findById(userId);
+    const removeEducation = user.education.find(
+      (edu) => edu.id === educationId
+    );
+    const index = user.workExperience.indexOf(removeEducation);
+    await user.education.splice(index, 1);
+    const result = await user.save();
+
+    return result;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
 module.exports = {
   createUser,
   login,
@@ -169,4 +202,6 @@ module.exports = {
   userById,
   createExperience,
   deleteExperience,
+  createEducation,
+  deleteEducation,
 };
