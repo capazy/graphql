@@ -19,6 +19,8 @@ const userSchema = new Schema(
     isAvailable: { type: Boolean, default: true },
     profilePictureName: { type: String, default: null },
     profilePictureUrl: { type: String, default: null },
+    role: { type: String, default: 'user' },
+
     workExperience: [
       {
         title: { type: String, default: null },

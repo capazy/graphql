@@ -91,6 +91,7 @@ type User {
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
     joins: [Join!]
+    role: String
 }
 
 type Experience {
@@ -201,6 +202,7 @@ input UpdateUserInput {
     country: String
     profilePictureName: String
     profilePictureUrl: String
+    role: String
 }
 
 input LoginInput {
