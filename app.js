@@ -39,14 +39,14 @@ app.use(express.json({ extended: false }));
 app.use(isAuth);
 app.use(morgan('dev'));
 app.use(helmet());
-app.use(
-  cookieSession({
-    name: 'capazy-session',
-    keys: ['key1', 'key2'],
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(
+//   cookieSession({
+//     name: 'capazy-session',
+//     keys: ['key1', 'key2'],
+//   })
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // auth routes
 app.use('/auth', authRoutes);

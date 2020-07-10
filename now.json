@@ -11,7 +11,9 @@
     "SENDGRID_API_KEY": "@sendgrid-api-key",
     "CAPAZY_EMAIL": "@capazy-email",
     "APOLLO_API_URI": "@apollo-api-uri",
-    "CLIENT_URI": "@client-uri"
+    "CLIENT_URI": "@client-uri",
+    "GOOGLE_CLIENT_ID": "@google-client-id",
+    "GOOGLE_CLIENT_SECRET": "@google-client-secret"
   },
   "routes": [
     { "src": "/auth/.*", "dest": "/index.js" },
