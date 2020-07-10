@@ -86,11 +86,12 @@ type User {
     isAvailable: Boolean
     profilePictureName: String
     profilePictureUrl: String
-    workExperience: [Experience!]!
-    education: [Education!]!
+    workExperience: [Experience!]
+    education: [Education!]
     createdProjects: [Project!]
     joinedProjects: [Vacancy!]
     joins: [Join!]
+    role: String
 }
 
 type Experience {
@@ -190,8 +191,8 @@ input UpdateUserInput {
     lastName: String
     description: String
     expertise: String
-    skills: [String!]
-    additionalSkills: [String!]
+    skills: [String]
+    additionalSkills: [String]
     languages: [String!]
     experience: String
     companyName: String
@@ -201,6 +202,7 @@ input UpdateUserInput {
     country: String
     profilePictureName: String
     profilePictureUrl: String
+    role: String
 }
 
 input LoginInput {
