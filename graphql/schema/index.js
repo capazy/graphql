@@ -66,8 +66,6 @@ type File {
     url: String
 }
 
-
-
 type User {
     _id: ID
     email: String!
@@ -216,7 +214,7 @@ type RootQuery {
     userById(userId: ID!): User!
     projects(skill: String!): [Project!]!
     projectById(projectId: ID): Project!
-    vacancies(projectId: ID!): [Vacancy!]!
+    vacancies: [Vacancy!]!
     joins: [Join!]!
 }
 

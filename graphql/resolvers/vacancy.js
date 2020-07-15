@@ -3,9 +3,9 @@ const Vacancy = require('../../models/vacancy');
 const Join = require('../../models/join');
 const { transformVacancy, transformProject } = require('./merge');
 
-const vacancies = async ({ projectId }) => {
+const vacancies = async () => {
   try {
-    const vacancies = await Vacancy.find({ project: projectId });
+    const vacancies = await Vacancy.find();
     return vacancies.map((vacancy) => {
       return transformVacancy(vacancy);
     });

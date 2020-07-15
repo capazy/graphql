@@ -20,6 +20,12 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
     throw new Error('Unauthenticated');
   }
   try {
+    const existingJoin = await Join.findOne({
+      $and: [{ user: userId }, { vacancy: vacancyId }],
+    });
+    if (existingJoin) {
+      throw new Error('User has already joined this vacancy.');
+    }
     const user = await User.findById(userId);
     const vacancy = await Vacancy.findById(vacancyId);
     const project = await Project.findById(vacancy.project);
@@ -37,7 +43,7 @@ const joinVacancy = async ({ vacancyId }, { isAuth, userId }) => {
     const result = await join.save();
     return transformJoin(result);
   } catch (error) {
-    throw new Error('Oops, something went wrong. Please try again later.');
+    throw error;
   }
 };
 
