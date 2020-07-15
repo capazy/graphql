@@ -107,13 +107,10 @@ const updateUser = async ({ userInput }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
-
   try {
     const user = await User.findOneAndUpdate(
       { _id: userId },
-      {
-        $set: userInput,
-      },
+      { [userInput.method]: userInput },
       { new: true }
     );
     return user;
@@ -188,6 +185,18 @@ const deleteEducation = async ({ educationId }, { isAuth, userId }) => {
   }
 };
 
+const deleteUserFile = async ({ fileId }, { isAuth, userId }) => {
+  if (!isAuth) {
+    throw new Error('Unauthenticated');
+  }
+  const user = await User.findById(userId);
+  const deleteFile = user.files.find((file) => file._id.toString() === fileId);
+  const index = user.files.indexOf(deleteFile);
+  await user.files.splice(index, 1);
+  const result = await user.save();
+  return result;
+};
+
 module.exports = {
   createUser,
   login,
@@ -199,4 +208,5 @@ module.exports = {
   deleteExperience,
   createEducation,
   deleteEducation,
+  deleteUserFile,
 };

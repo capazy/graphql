@@ -60,12 +60,6 @@ type Job {
     creator: User!
 }
 
-type File {
-    _id: ID
-    name: String
-    url: String
-}
-
 type User {
     _id: ID
     email: String!
@@ -90,6 +84,13 @@ type User {
     joinedProjects: [Vacancy!]
     joins: [Join!]
     role: String
+    files: [File!]!
+}
+
+type File {
+    _id: ID
+    name: String
+    url: String
 }
 
 type Experience {
@@ -100,7 +101,6 @@ type Experience {
     description: String!
     skills: [String!]
 }
-
 
 input ExperienceInput {
     title: String!
@@ -158,11 +158,6 @@ input UpdateProjectInput {
     projectPictureUrl: String
 }
 
-input FileInput {
-    name: String!
-    url: String!
-}
-
 input VacancyInput {
     projectId: ID
     title: String
@@ -185,6 +180,7 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
+    method: String
     firstName: String
     lastName: String
     description: String
@@ -201,6 +197,12 @@ input UpdateUserInput {
     profilePictureName: String
     profilePictureUrl: String
     role: String
+    files: [FileInput]
+}
+
+input FileInput {
+    name: String!
+    url: String!
 }
 
 input LoginInput {
@@ -235,6 +237,7 @@ type RootMutation {
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
     deleteProjectFile(projectId: ID!, fileId: ID!): Project!
+    deleteUserFile(fileId: ID!): User!
     createJob(jobInput: JobInput): Job!
     sendEmail(email: String!, message: String!): Email!
 }

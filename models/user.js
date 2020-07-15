@@ -20,6 +20,12 @@ const userSchema = new Schema(
     profilePictureName: { type: String, default: null },
     profilePictureUrl: { type: String, default: null },
     role: { type: String, default: 'user' },
+    files: [
+      {
+        name: { type: String, default: null },
+        url: { type: String, default: null },
+      },
+    ],
 
     workExperience: [
       {
