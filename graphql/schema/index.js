@@ -240,6 +240,7 @@ type RootMutation {
     deleteUserFile(fileId: ID!): User!
     createJob(jobInput: JobInput): Job!
     sendEmail(email: String!, message: String!): Email!
+    sendAdminEmail(email: String!, subject: String!,message: String!): Email!
 }
 
 schema {
