@@ -212,6 +212,7 @@ input LoginInput {
 
 type RootQuery {
     user: User!
+    allUsers:[User!]!
     users(skill: String!): [User!]!
     userById(userId: ID!): User!
     projects(skill: String!): [Project!]!
