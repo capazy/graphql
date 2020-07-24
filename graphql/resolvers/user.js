@@ -56,6 +56,18 @@ const users = async ({ skill }) => {
   }
 };
 
+const allUsers = async () => {
+  try {
+    let users;
+
+    users = await User.find();
+
+    return users;
+  } catch (error) {
+    throw new Error('Oops, something went wrong. Please try again later.');
+  }
+};
+
 const createUser = async ({
   userInput: { email, password, firstName, lastName },
 }) => {
@@ -203,6 +215,7 @@ module.exports = {
   updateUser,
   user,
   users,
+  allUsers,
   userById,
   createExperience,
   deleteExperience,
