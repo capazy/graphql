@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const { projects, vacancies, joins } = require('./merge');
+const { sendAdminEmail } = require('../services/email');
+const { EMAIL } = require('../../helpers/constants');
 
 const user = async (args, { isAuth, userId }) => {
   if (!isAuth) {
@@ -73,7 +75,6 @@ const createUser = async ({
 }) => {
   try {
     const existingUser = await User.findOne({ email });
-    console.log(existingUser);
     if (existingUser) {
       throw new Error('User exists already.');
     }
@@ -88,6 +89,7 @@ const createUser = async ({
       { userId: user.id, email: user.email },
       'jwtsecretkey'
     );
+    sendAdminEmail(email, EMAIL.WELCOME_SUBJECT, EMAIL.WELCOME_BODY);
     await user.save();
     return { userId: user.id, token, tokenExp: 24 };
   } catch (error) {
