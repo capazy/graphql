@@ -3,6 +3,8 @@ const GooglePlusTokenStrategy = require('passport-google-plus-token');
 // const GoogleStrategy = require('passport-google-oauth20').Strategy;
 // const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const User = require('../models/user');
+const { sendAdminEmail } = require('../graphql/services/email');
+const { EMAIL } = require('../helpers/constants');
 
 passport.use(
   'googleToken',
@@ -32,6 +34,7 @@ passport.use(
           email,
           profilePictureUrl,
         });
+        sendAdminEmail(email, EMAIL.WELCOME_SUBJECT, EMAIL.WELCOME_BODY);
         await user.save();
         return done(null, user);
       } catch (error) {

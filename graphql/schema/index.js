@@ -85,6 +85,7 @@ type User {
     joins: [Join!]
     role: String
     files: [File!]!
+    certificates: [File!]!
 }
 
 type File {
@@ -198,6 +199,7 @@ input UpdateUserInput {
     profilePictureUrl: String
     role: String
     files: [FileInput]
+    certificates: [FileInput]
 }
 
 input FileInput {
@@ -238,7 +240,7 @@ type RootMutation {
     cancelProject(projectId: ID!): Project!
     selectUser(selectedUserId: ID!, vacancyId: ID!): Vacancy!
     deleteProjectFile(projectId: ID!, fileId: ID!): Project!
-    deleteUserFile(fileId: ID!): User!
+    deleteUserFile(id: ID!, dataType: String!): User!
     createJob(jobInput: JobInput): Job!
     sendEmail(email: String!, message: String!): Email!
     sendAdminEmail(email: String!, subject: String!,message: String!): Email!

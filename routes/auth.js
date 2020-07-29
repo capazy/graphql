@@ -3,13 +3,10 @@ const express = require('express');
 const passport = require('passport');
 const passportGoogle = passport.authenticate('googleToken', { session: false });
 const jwt = require('jsonwebtoken');
-const { sendAdminEmail } = require('../graphql/services/email');
-const { EMAIL } = require('../helpers/constants');
 const router = express.Router();
 
 router.post('/google', passportGoogle, async (req, res) => {
   try {
-    sendAdminEmail(req.user.email, EMAIL.WELCOME_SUBJECT, EMAIL.WELCOME_BODY);
     const token = await jwt.sign(
       { userId: req.user.id, email: req.user.email },
       'jwtsecretkey'

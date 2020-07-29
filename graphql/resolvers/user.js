@@ -199,14 +199,14 @@ const deleteEducation = async ({ educationId }, { isAuth, userId }) => {
   }
 };
 
-const deleteUserFile = async ({ fileId }, { isAuth, userId }) => {
+const deleteUserFile = async ({ id, dataType }, { isAuth, userId }) => {
   if (!isAuth) {
     throw new Error('Unauthenticated');
   }
   const user = await User.findById(userId);
-  const deleteFile = user.files.find((file) => file._id.toString() === fileId);
-  const index = user.files.indexOf(deleteFile);
-  await user.files.splice(index, 1);
+  const deleteFile = user[dataType].find((file) => file._id.toString() === id);
+  const index = user[dataType].indexOf(deleteFile);
+  await user[dataType].splice(index, 1);
   const result = await user.save();
   return result;
 };
